@@ -10,7 +10,7 @@
 ## 패턴 형태
 
 - 분류: 안티패턴
-- 형태: Referential Identity Smell
+- 형태: 참조 동일성 문제
 - 목적: 자주 하는 실수와 개선 방향은 무엇인가
 
 ## 왜 필요한가
@@ -38,12 +38,12 @@ style, options, columns 같은 객체를 inline으로 만들면 memoized child�
 
 ## 실무 예시
 
-`Inline Object Props`의 핵심은 매 렌더마다 새 객체 prop을 내려 memoization을 깨지 않게 하는 방식입니다. 코드 리뷰에서 반복되는 구조적 냄새를 설명하고 작은 리팩터링 단위로 쪼갤 때 사용합니다.
+`Inline Object Props`의 핵심은 매 렌더마다 새 객체 prop을 내려 memoization을 깨지 않게 하는 방식입니다. 코드 리뷰에서 반복되는 문제 패턴을 설명하고 작은 리팩터링 단위로 쪼갤 때 사용합니다.
 
 ## 기본 코드 형태
 
 ```tsx
-// BadCase.tsx에서 냄새를 확인한 뒤
+// BadCase.tsx에서 문제 지점을 확인한 뒤
 // ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
 ```
 
@@ -51,7 +51,7 @@ style, options, columns 같은 객체를 inline으로 만들면 memoized child�
 
 이 문서는 금지 규칙이 아니라 리팩터링 신호입니다. `Inline Object Props`가 보이면 왜 생겼는지 확인하고, 더 작은 책임 경계로 옮길 수 있는지 봅니다.
 
-형태상으로는 `Referential Identity Smell`에 속하므로, 같은 카테고리의 다른 패턴과 비교할 때 "API 모양", "상태 소유권", "변경 영향 범위"를 기준으로 구분합니다.
+문제 유형으로는 `참조 동일성 문제`에 가깝습니다. 같은 카테고리의 다른 패턴과 비교할 때 "API 모양", "상태 소유권", "변경 영향 범위"를 기준으로 구분합니다.
 
 ## 코드 리뷰 체크리스트
 
@@ -61,7 +61,7 @@ style, options, columns 같은 객체를 inline으로 만들면 memoized child�
 
 ## 흔한 실수
 
-- 냄새를 발견하자마자 큰 리팩터링으로 번집니다.
+- 문제 징후를 발견하자마자 큰 리팩터링으로 번집니다.
 - 예외적으로 괜찮은 단순 케이스까지 금지합니다.
 - 개선 기준 없이 파일만 쪼갭니다.
 
