@@ -1,4 +1,7 @@
-# Use Previous
+# 이전 값 훅
+
+영문명: usePrevious
+폴더: `hooks/use-previous`
 
 ## 한 줄 요약
 

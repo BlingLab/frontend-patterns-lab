@@ -1,4 +1,7 @@
-# Overuse Memoization
+# 메모이제이션 남용
+
+영문명: Overuse Memoization
+폴더: `anti-patterns/overuse-memoization`
 
 ## 한 줄 요약
 

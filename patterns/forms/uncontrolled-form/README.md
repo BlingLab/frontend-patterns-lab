@@ -1,4 +1,7 @@
-# Uncontrolled Form
+# 비제어 폼
+
+영문명: Uncontrolled Form
+폴더: `forms/uncontrolled-form`
 
 ## 한 줄 요약
 

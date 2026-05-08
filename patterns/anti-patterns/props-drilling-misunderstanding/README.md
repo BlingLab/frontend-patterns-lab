@@ -1,4 +1,7 @@
-# Props Drilling Misunderstanding
+# props drilling 오해
+
+영문명: Props Drilling Misunderstanding
+폴더: `anti-patterns/props-drilling-misunderstanding`
 
 ## 한 줄 요약
 

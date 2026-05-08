@@ -1,4 +1,7 @@
-# Boolean Props Explosion
+# boolean props 폭발
+
+영문명: Boolean Props Explosion
+폴더: `anti-patterns/boolean-props-explosion`
 
 ## 한 줄 요약
 

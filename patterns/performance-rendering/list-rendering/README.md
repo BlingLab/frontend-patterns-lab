@@ -1,4 +1,7 @@
-# List Rendering
+# 목록 렌더링
+
+영문명: List Rendering
+폴더: `performance-rendering/list-rendering`
 
 ## 한 줄 요약
 

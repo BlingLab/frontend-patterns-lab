@@ -1,4 +1,7 @@
-# Render Props
+# 렌더 프롭스
+
+영문명: Render Props
+폴더: `component-composition/render-props`
 
 ## 한 줄 요약
 

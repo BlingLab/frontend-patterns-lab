@@ -1,4 +1,7 @@
-# Error Boundary
+# 에러 경계
+
+영문명: Error Boundary
+폴더: `async-api/error-boundary`
 
 ## 한 줄 요약
 

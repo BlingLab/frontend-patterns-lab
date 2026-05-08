@@ -1,4 +1,7 @@
-# API Adapter
+# API 어댑터
+
+영문명: API Adapter
+폴더: `async-api/api-adapter`
 
 ## 한 줄 요약
 

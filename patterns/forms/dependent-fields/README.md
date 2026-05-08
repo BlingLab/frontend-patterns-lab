@@ -1,4 +1,7 @@
-# Dependent Fields
+# 의존 필드
+
+영문명: Dependent Fields
+폴더: `forms/dependent-fields`
 
 ## 한 줄 요약
 

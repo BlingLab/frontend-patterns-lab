@@ -1,4 +1,7 @@
-# Skeleton vs Spinner
+# 스켈레톤 vs 스피너
+
+영문명: Skeleton vs Spinner
+폴더: `ui-state/skeleton-vs-spinner`
 
 ## 한 줄 요약
 

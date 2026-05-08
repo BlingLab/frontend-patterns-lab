@@ -1,4 +1,7 @@
-# Pending State
+# 처리 중 상태
+
+영문명: Pending State
+폴더: `ui-state/pending-state`
 
 ## 한 줄 요약
 

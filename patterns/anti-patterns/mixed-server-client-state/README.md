@@ -1,4 +1,7 @@
-# Mixed Server / Client State
+# 서버/클라이언트 상태 혼합
+
+영문명: Mixed Server / Client State
+폴더: `anti-patterns/mixed-server-client-state`
 
 ## 한 줄 요약
 

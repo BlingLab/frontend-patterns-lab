@@ -1,4 +1,7 @@
-# Pagination
+# 페이지네이션
+
+영문명: Pagination
+폴더: `async-api/pagination`
 
 ## 한 줄 요약
 

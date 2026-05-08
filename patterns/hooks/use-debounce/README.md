@@ -1,4 +1,7 @@
-# Use Debounce
+# debounce 훅
+
+영문명: useDebounce
+폴더: `hooks/use-debounce`
 
 ## 한 줄 요약
 

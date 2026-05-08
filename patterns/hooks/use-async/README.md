@@ -1,4 +1,7 @@
-# Use Async
+# 비동기 상태 훅
+
+영문명: useAsync
+폴더: `hooks/use-async`
 
 ## 한 줄 요약
 

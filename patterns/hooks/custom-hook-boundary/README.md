@@ -1,4 +1,7 @@
-# Custom Hook Boundary
+# 커스텀 훅 경계
+
+영문명: Custom Hook Boundary
+폴더: `hooks/custom-hook-boundary`
 
 ## 한 줄 요약
 

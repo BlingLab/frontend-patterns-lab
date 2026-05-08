@@ -1,4 +1,7 @@
-# Controlled / Uncontrolled
+# 제어/비제어 컴포넌트
+
+영문명: Controlled / Uncontrolled
+폴더: `component-composition/controlled-uncontrolled`
 
 ## 한 줄 요약
 

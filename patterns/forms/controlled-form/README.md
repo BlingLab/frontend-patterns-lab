@@ -1,4 +1,7 @@
-# Controlled Form
+# 제어 폼
+
+영문명: Controlled Form
+폴더: `forms/controlled-form`
 
 ## 한 줄 요약
 

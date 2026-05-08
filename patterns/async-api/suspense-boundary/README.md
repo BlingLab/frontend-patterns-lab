@@ -1,4 +1,7 @@
-# Suspense Boundary
+# Suspense 경계
+
+영문명: Suspense Boundary
+폴더: `async-api/suspense-boundary`
 
 ## 한 줄 요약
 

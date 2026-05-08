@@ -1,4 +1,7 @@
-# Expensive Calculation
+# 비싼 계산 처리
+
+영문명: Expensive Calculation
+폴더: `performance-rendering/expensive-calculation`
 
 ## 한 줄 요약
 

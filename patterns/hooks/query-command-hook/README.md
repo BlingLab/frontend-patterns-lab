@@ -1,4 +1,7 @@
-# Query Command Hook
+# 조회/명령 훅 분리
+
+영문명: Query / Command Hook
+폴더: `hooks/query-command-hook`
 
 ## 한 줄 요약
 

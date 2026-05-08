@@ -1,4 +1,7 @@
-# URL State
+# URL 상태
+
+영문명: URL State
+폴더: `state-management/url-state`
 
 ## 한 줄 요약
 

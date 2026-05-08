@@ -1,4 +1,7 @@
-# Headless Component
+# 헤드리스 컴포넌트
+
+영문명: Headless Component
+폴더: `component-composition/headless-component`
 
 ## 한 줄 요약
 

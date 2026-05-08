@@ -1,4 +1,7 @@
-# Cache Invalidation
+# 캐시 무효화
+
+영문명: Cache Invalidation
+폴더: `async-api/cache-invalidation`
 
 ## 한 줄 요약
 

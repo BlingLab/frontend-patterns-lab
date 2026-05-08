@@ -1,4 +1,7 @@
-# Toast vs Inline Error
+# 토스트 vs 인라인 오류
+
+영문명: Toast vs Inline Error
+폴더: `ui-state/toast-vs-inline-error`
 
 ## 한 줄 요약
 

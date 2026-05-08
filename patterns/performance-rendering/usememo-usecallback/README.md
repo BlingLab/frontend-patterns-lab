@@ -1,4 +1,7 @@
-# useMemo / useCallback
+# useMemo/useCallback 기준
+
+영문명: useMemo / useCallback
+폴더: `performance-rendering/usememo-usecallback`
 
 ## 한 줄 요약
 

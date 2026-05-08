@@ -1,4 +1,7 @@
-# Hook Composition
+# 훅 조합
+
+영문명: Hook Composition
+폴더: `hooks/hook-composition`
 
 ## 한 줄 요약
 

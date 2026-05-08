@@ -1,4 +1,7 @@
-# Mutation Hook Pattern
+# mutation 훅 패턴
+
+영문명: Mutation Hook Pattern
+폴더: `async-api/mutation-hook-pattern`
 
 ## 한 줄 요약
 

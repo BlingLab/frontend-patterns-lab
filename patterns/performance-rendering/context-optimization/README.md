@@ -1,4 +1,7 @@
-# Context Optimization
+# Context 최적화
+
+영문명: Context Optimization
+폴더: `performance-rendering/context-optimization`
 
 ## 한 줄 요약
 

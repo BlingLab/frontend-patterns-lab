@@ -1,4 +1,7 @@
-# Local State First
+# 가까운 상태 우선
+
+영문명: Local State First
+폴더: `state-management/local-state-first`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Duplicated Loading State
+# 중복 로딩 상태
+
+영문명: Duplicated Loading State
+폴더: `anti-patterns/duplicated-loading-state`
 
 ## 한 줄 요약
 

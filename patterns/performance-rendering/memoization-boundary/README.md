@@ -1,4 +1,7 @@
-# Memoization Boundary
+# 메모이제이션 경계
+
+영문명: Memoization Boundary
+폴더: `performance-rendering/memoization-boundary`
 
 ## 한 줄 요약
 

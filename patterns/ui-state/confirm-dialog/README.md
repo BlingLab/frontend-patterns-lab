@@ -1,4 +1,7 @@
-# Confirm Dialog
+# 확인 다이얼로그
+
+영문명: Confirm Dialog
+폴더: `ui-state/confirm-dialog`
 
 ## 한 줄 요약
 

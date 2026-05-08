@@ -1,4 +1,7 @@
-# Use Event Listener
+# 이벤트 구독 훅
+
+영문명: useEventListener
+폴더: `hooks/use-event-listener`
 
 ## 한 줄 요약
 

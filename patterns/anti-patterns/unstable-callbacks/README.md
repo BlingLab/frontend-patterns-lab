@@ -1,4 +1,7 @@
-# Unstable Callbacks
+# 불안정한 콜백
+
+영문명: Unstable Callbacks
+폴더: `anti-patterns/unstable-callbacks`
 
 ## 한 줄 요약
 

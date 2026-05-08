@@ -1,4 +1,7 @@
-# Empty State
+# 빈 상태
+
+영문명: Empty State
+폴더: `ui-state/empty-state`
 
 ## 한 줄 요약
 

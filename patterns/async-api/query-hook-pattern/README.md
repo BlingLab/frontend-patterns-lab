@@ -1,4 +1,7 @@
-# Query Hook Pattern
+# 조회 훅 패턴
+
+영문명: Query Hook Pattern
+폴더: `async-api/query-hook-pattern`
 
 ## 한 줄 요약
 

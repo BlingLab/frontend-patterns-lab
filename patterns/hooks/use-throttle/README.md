@@ -1,4 +1,7 @@
-# Use Throttle
+# throttle 훅
+
+영문명: useThrottle
+폴더: `hooks/use-throttle`
 
 ## 한 줄 요약
 

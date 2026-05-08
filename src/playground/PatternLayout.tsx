@@ -19,7 +19,7 @@ export function PatternLayout({ routes }: { routes: PatternRoute[] }) {
       <aside className="sidebar" aria-label="Pattern navigation">
         <div className="brand-block">
           <span className="eyebrow">Frontend Patterns Lab</span>
-          <h1>실무 패턴 플레이북</h1>
+          <h1>React 실무 패턴</h1>
         </div>
         <nav className="pattern-nav">
           {Object.entries(groupedRoutes).map(([category, categoryRoutes]) => (
@@ -38,6 +38,7 @@ export function PatternLayout({ routes }: { routes: PatternRoute[] }) {
         <header className="pattern-header">
           <span className="eyebrow">{selectedRoute.category}</span>
           <h2>{selectedRoute.title}</h2>
+          <span className="english-title">{selectedRoute.englishTitle}</span>
           <p>{selectedRoute.summary}</p>
         </header>
         <Example />

@@ -1,4 +1,7 @@
-# Server State vs Client State
+# 서버 상태와 클라이언트 상태
+
+영문명: Server State vs Client State
+폴더: `state-management/server-state-vs-client-state`
 
 ## 한 줄 요약
 

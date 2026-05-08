@@ -1,4 +1,7 @@
-# Render Tracking
+# 렌더 추적
+
+영문명: Render Tracking
+폴더: `performance-rendering/render-tracking`
 
 ## 한 줄 요약
 

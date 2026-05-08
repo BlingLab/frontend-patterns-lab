@@ -1,4 +1,7 @@
-# Slot Pattern
+# 슬롯 패턴
+
+영문명: Slot Pattern
+폴더: `component-composition/slot-pattern`
 
 ## 한 줄 요약
 

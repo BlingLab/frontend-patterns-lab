@@ -1,4 +1,7 @@
-# Lazy Loading
+# 지연 로딩
+
+영문명: Lazy Loading
+폴더: `performance-rendering/lazy-loading`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Infinite Query
+# 무한 조회
+
+영문명: Infinite Query
+폴더: `async-api/infinite-query`
 
 ## 한 줄 요약
 

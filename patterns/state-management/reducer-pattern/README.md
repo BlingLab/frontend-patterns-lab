@@ -1,4 +1,7 @@
-# Reducer Pattern
+# reducer 패턴
+
+영문명: Reducer Pattern
+폴더: `state-management/reducer-pattern`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Submit Lock
+# 제출 잠금
+
+영문명: Submit Lock
+폴더: `forms/submit-lock`
 
 ## 한 줄 요약
 

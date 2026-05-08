@@ -1,4 +1,7 @@
-# Dirty State
+# 변경 여부 상태
+
+영문명: Dirty State
+폴더: `forms/dirty-state`
 
 ## 한 줄 요약
 

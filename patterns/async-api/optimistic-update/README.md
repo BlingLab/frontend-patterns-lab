@@ -1,4 +1,7 @@
-# Optimistic Update
+# 낙관적 업데이트
+
+영문명: Optimistic Update
+폴더: `async-api/optimistic-update`
 
 ## 한 줄 요약
 

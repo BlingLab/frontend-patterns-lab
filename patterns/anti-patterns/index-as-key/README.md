@@ -1,4 +1,7 @@
-# Index As Key
+# index를 key로 사용
+
+영문명: Index as Key
+폴더: `anti-patterns/index-as-key`
 
 ## 한 줄 요약
 

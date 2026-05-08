@@ -1,4 +1,7 @@
-# Children Composition
+# children 조합
+
+영문명: Children Composition
+폴더: `component-composition/children-composition`
 
 ## 한 줄 요약
 

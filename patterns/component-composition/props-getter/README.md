@@ -1,4 +1,7 @@
-# Props Getter
+# props getter 패턴
+
+영문명: Props Getter
+폴더: `component-composition/props-getter`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Provider Pattern
+# Provider 패턴
+
+영문명: Provider Pattern
+폴더: `component-composition/provider-pattern`
 
 ## 한 줄 요약
 

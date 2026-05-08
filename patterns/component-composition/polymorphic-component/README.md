@@ -1,4 +1,7 @@
-# Polymorphic Component
+# 다형성 컴포넌트
+
+영문명: Polymorphic Component
+폴더: `component-composition/polymorphic-component`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Request Status Model
+# 요청 상태 모델
+
+영문명: Request Status Model
+폴더: `async-api/request-status-model`
 
 ## 한 줄 요약
 

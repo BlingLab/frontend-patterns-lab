@@ -1,4 +1,7 @@
-# Inline Object Props
+# 인라인 객체 props
+
+영문명: Inline Object Props
+폴더: `anti-patterns/inline-object-props`
 
 ## 한 줄 요약
 

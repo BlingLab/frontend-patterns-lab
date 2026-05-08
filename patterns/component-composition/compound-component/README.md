@@ -1,4 +1,7 @@
-# Compound Component
+# 합성 컴포넌트
+
+영문명: Compound Component
+폴더: `component-composition/compound-component`
 
 ## 한 줄 요약
 

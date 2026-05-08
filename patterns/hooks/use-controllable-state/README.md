@@ -1,4 +1,7 @@
-# Use Controllable State
+# 제어 가능 상태 훅
+
+영문명: useControllableState
+폴더: `hooks/use-controllable-state`
 
 ## 한 줄 요약
 

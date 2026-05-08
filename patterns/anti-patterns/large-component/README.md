@@ -1,4 +1,7 @@
-# Large Component
+# 거대한 컴포넌트
+
+영문명: Large Component
+폴더: `anti-patterns/large-component`
 
 ## 한 줄 요약
 

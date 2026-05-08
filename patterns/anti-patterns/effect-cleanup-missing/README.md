@@ -1,4 +1,7 @@
-# Effect Cleanup Missing
+# effect cleanup 누락
+
+영문명: Effect Cleanup Missing
+폴더: `anti-patterns/effect-cleanup-missing`
 
 ## 한 줄 요약
 

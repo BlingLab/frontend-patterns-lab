@@ -1,4 +1,7 @@
-# Unnecessary Global State
+# 불필요한 전역 상태
+
+영문명: Unnecessary Global State
+폴더: `anti-patterns/unnecessary-global-state`
 
 ## 한 줄 요약
 

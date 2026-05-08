@@ -1,4 +1,7 @@
-# Use Disclosure
+# 열림/닫힘 훅
+
+영문명: useDisclosure
+폴더: `hooks/use-disclosure`
 
 ## 한 줄 요약
 

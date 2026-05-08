@@ -1,4 +1,7 @@
-# Multi Step Form
+# 단계형 폼
+
+영문명: Multi Step Form
+폴더: `forms/multi-step-form`
 
 ## 한 줄 요약
 

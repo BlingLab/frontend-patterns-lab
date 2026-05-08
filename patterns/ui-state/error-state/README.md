@@ -1,4 +1,7 @@
-# Error State
+# 에러 상태
+
+영문명: Error State
+폴더: `ui-state/error-state`
 
 ## 한 줄 요약
 

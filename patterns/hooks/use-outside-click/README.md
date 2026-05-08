@@ -1,4 +1,7 @@
-# Use Outside Click
+# 바깥 클릭 감지 훅
+
+영문명: useOutsideClick
+폴더: `hooks/use-outside-click`
 
 ## 한 줄 요약
 

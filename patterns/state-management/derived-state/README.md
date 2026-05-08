@@ -1,4 +1,7 @@
-# Derived State
+# 파생 상태
+
+영문명: Derived State
+폴더: `state-management/derived-state`
 
 ## 한 줄 요약
 

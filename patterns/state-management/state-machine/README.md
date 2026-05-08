@@ -1,4 +1,7 @@
-# State Machine
+# 상태 머신
+
+영문명: State Machine
+폴더: `state-management/state-machine`
 
 ## 한 줄 요약
 

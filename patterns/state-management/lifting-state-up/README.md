@@ -1,4 +1,7 @@
-# Lifting State Up
+# 상태 끌어올리기
+
+영문명: Lifting State Up
+폴더: `state-management/lifting-state-up`
 
 ## 한 줄 요약
 

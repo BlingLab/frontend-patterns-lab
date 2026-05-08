@@ -1,4 +1,7 @@
-# Optimistic UI
+# 낙관적 UI
+
+영문명: Optimistic UI
+폴더: `state-management/optimistic-ui`
 
 ## 한 줄 요약
 

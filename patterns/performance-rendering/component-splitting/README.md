@@ -1,4 +1,7 @@
-# Component Splitting
+# 컴포넌트 분리
+
+영문명: Component Splitting
+폴더: `performance-rendering/component-splitting`
 
 ## 한 줄 요약
 

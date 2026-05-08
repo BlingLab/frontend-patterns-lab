@@ -1,4 +1,7 @@
-# Server Error Mapping
+# 서버 오류 매핑
+
+영문명: Server Error Mapping
+폴더: `forms/server-error-mapping`
 
 ## 한 줄 요약
 

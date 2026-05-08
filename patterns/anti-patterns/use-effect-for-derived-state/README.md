@@ -1,4 +1,7 @@
-# Use Effect For Derived State
+# 파생 상태를 effect로 만들기
+
+영문명: Use Effect For Derived State
+폴더: `anti-patterns/use-effect-for-derived-state`
 
 ## 한 줄 요약
 

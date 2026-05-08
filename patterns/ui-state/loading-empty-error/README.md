@@ -1,4 +1,7 @@
-# Loading / Empty / Error
+# 로딩/빈 상태/에러
+
+영문명: Loading / Empty / Error
+폴더: `ui-state/loading-empty-error`
 
 ## 한 줄 요약
 

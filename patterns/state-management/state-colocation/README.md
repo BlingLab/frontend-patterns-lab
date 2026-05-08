@@ -1,4 +1,7 @@
-# State Colocation
+# 상태 위치 맞추기
+
+영문명: State Colocation
+폴더: `state-management/state-colocation`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Disabled State
+# 비활성 상태
+
+영문명: Disabled State
+폴더: `ui-state/disabled-state`
 
 ## 한 줄 요약
 

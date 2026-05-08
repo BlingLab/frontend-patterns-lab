@@ -1,4 +1,7 @@
-# Dynamic Fields
+# 동적 필드
+
+영문명: Dynamic Fields
+폴더: `forms/dynamic-fields`
 
 ## 한 줄 요약
 

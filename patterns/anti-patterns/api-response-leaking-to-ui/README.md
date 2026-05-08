@@ -1,4 +1,7 @@
-# API Response Leaking to UI
+# API 응답 UI 누수
+
+영문명: API Response Leaking to UI
+폴더: `anti-patterns/api-response-leaking-to-ui`
 
 ## 한 줄 요약
 

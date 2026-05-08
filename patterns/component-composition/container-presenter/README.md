@@ -1,4 +1,7 @@
-# Container Presenter
+# 컨테이너/프리젠터
+
+영문명: Container / Presenter
+폴더: `component-composition/container-presenter`
 
 ## 한 줄 요약
 

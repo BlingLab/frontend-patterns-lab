@@ -1,4 +1,7 @@
-# External Store
+# 외부 store 연결
+
+영문명: External Store
+폴더: `state-management/external-store`
 
 ## 한 줄 요약
 

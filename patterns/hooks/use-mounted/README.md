@@ -1,4 +1,7 @@
-# Use Mounted
+# 마운트 여부 훅
+
+영문명: useMounted
+폴더: `hooks/use-mounted`
 
 ## 한 줄 요약
 

@@ -1,4 +1,7 @@
-# Field Level Validation
+# 필드 단위 검증
+
+영문명: Field Level Validation
+폴더: `forms/field-level-validation`
 
 ## 한 줄 요약
 
