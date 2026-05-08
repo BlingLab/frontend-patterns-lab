@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UnstableCallbacksExample() {
   return (
-    <Card title="Unstable Callbacks" eyebrow="Anti Patterns / Example">
+    <Card title="불안정한 콜백" eyebrow="안티패턴 / 문제 예">
       <p>불안정한 콜백이 하위 컴포넌트 렌더를 유발합니다.</p>
       <div className="example-surface">
         <div>

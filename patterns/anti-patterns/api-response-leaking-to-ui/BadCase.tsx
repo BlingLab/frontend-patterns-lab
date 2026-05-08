@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ApiResponseLeakingToUiBadCase() {
   return (
-    <Card title="API Response Leaking to UI" eyebrow="Anti Patterns / Bad Case">
+    <Card title="API 응답 UI 누수" eyebrow="안티패턴 / 나쁜 예">
       <p>서버 응답 구조가 UI 컴포넌트까지 새어 나옵니다.</p>
       <div className="example-surface">
         <div>

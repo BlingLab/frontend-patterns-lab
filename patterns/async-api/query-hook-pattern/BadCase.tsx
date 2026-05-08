@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function QueryHookPatternBadCase() {
   return (
-    <Card title="Query Hook Pattern" eyebrow="Async API / Bad Case">
+    <Card title="조회 훅 패턴" eyebrow="비동기와 API 상태 / 나쁜 예">
       <p>조회 요청을 전용 훅으로 분리합니다.</p>
       <div className="example-surface">
         <div>

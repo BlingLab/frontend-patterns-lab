@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function FieldLevelValidationBadCase() {
   return (
-    <Card title="Field Level Validation" eyebrow="Forms / Bad Case">
+    <Card title="필드 단위 검증" eyebrow="폼과 검증 / 나쁜 예">
       <p>필드 단위로 검증과 오류 표시를 분리합니다.</p>
       <div className="example-surface">
         <div>

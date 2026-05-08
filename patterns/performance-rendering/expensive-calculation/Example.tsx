@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ExpensiveCalculationExample() {
   return (
-    <Card title="Expensive Calculation" eyebrow="Performance Rendering / Example">
+    <Card title="비싼 계산 처리" eyebrow="렌더링 성능 / 좋은 예">
       <p>무거운 계산을 memoization 또는 사전 계산으로 제한합니다.</p>
       <div className="example-surface">
         <div>

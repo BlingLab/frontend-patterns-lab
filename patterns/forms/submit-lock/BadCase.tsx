@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function SubmitLockBadCase() {
   return (
-    <Card title="Submit Lock" eyebrow="Forms / Bad Case">
+    <Card title="제출 잠금" eyebrow="폼과 검증 / 나쁜 예">
       <p>중복 제출을 막고 제출 중 상태를 표현합니다.</p>
       <div className="example-surface">
         <div>

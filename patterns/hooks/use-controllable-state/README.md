@@ -9,7 +9,7 @@ controlled/uncontrolled 컴포넌트의 상태 소유권 분기를 훅 하나로
 
 ## 패턴 형태
 
-- 분류: Hooks
+- 분류: 훅과 로직 재사용
 - 형태: Reusable State Hook
 - 목적: 재사용 로직을 어떻게 분리할 것인가
 

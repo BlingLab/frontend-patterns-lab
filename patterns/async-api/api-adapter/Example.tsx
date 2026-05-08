@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ApiAdapterExample() {
   return (
-    <Card title="API Adapter" eyebrow="Async API / Example">
+    <Card title="API 어댑터" eyebrow="비동기와 API 상태 / 좋은 예">
       <p>서버 응답 형태를 UI 모델로 변환합니다.</p>
       <div className="example-surface">
         <div>

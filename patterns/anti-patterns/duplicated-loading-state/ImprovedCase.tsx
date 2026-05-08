@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function DuplicatedLoadingStateImprovedCase() {
   return (
-    <Card title="Duplicated Loading State" eyebrow="Anti Patterns / Improved Case">
+    <Card title="중복 로딩 상태" eyebrow="안티패턴 / 개선 예">
       <p>같은 요청 상태를 여러 불리언으로 중복 관리합니다.</p>
       <div className="example-surface">
         <div>

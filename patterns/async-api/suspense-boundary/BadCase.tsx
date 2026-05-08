@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function SuspenseBoundaryBadCase() {
   return (
-    <Card title="Suspense Boundary" eyebrow="Async API / Bad Case">
+    <Card title="Suspense 경계" eyebrow="비동기와 API 상태 / 나쁜 예">
       <p>Suspense로 비동기 로딩 경계를 선언합니다.</p>
       <div className="example-surface">
         <div>

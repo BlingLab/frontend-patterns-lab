@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ErrorStateExample() {
   return (
-    <Card title="Error State" eyebrow="UI State / Example">
+    <Card title="에러 상태" eyebrow="UI 상태 표현 / 좋은 예">
       <p>복구 가능한 오류를 명확한 액션과 함께 보여줍니다.</p>
       <div className="example-surface">
         <div>

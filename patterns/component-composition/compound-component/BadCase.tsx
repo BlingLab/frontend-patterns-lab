@@ -12,7 +12,7 @@ function SettingsTabs({ tabs }: { tabs: SettingsTab[] }) {
   const selectedTab = tabs.find((tab) => tab.value === selectedValue);
 
   return (
-    <Card title="Compound Component" eyebrow="컴포넌트 조합 / Bad Case">
+    <Card title="합성 컴포넌트" eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>상태 연결은 숨겼지만, 호출부는 tab 내부 구조를 배열 데이터 모델에 맞춰야 합니다.</p>
       <div role="tablist" aria-label="설정 메뉴" style={{ display: 'flex', gap: 8, margin: '16px 0' }}>
         {tabs.map((tab) => (

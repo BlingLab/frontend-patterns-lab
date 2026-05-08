@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function HookCompositionExample() {
   return (
-    <Card title="Hook Composition" eyebrow="Hooks / Example">
+    <Card title="훅 조합" eyebrow="훅과 로직 재사용 / 좋은 예">
       <p>작은 훅을 조합해 더 큰 도메인 훅을 만듭니다.</p>
       <div className="example-surface">
         <div>

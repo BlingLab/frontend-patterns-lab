@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function LargeComponentExample() {
   return (
-    <Card title="Large Component" eyebrow="Anti Patterns / Example">
+    <Card title="거대한 컴포넌트" eyebrow="안티패턴 / 문제 예">
       <p>하나의 컴포넌트가 데이터, 상태, 표현을 모두 떠안습니다.</p>
       <div className="example-surface">
         <div>

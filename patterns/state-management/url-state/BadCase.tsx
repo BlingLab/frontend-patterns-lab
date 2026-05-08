@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UrlStateBadCase() {
   return (
-    <Card title="URL State" eyebrow="상태 관리 / Bad Case">
+    <Card title="URL 상태" eyebrow="상태 관리 / 나쁜 예">
       <p>공유되어야 하는 필터와 페이지 정보를 URL에 둡니다.</p>
       <div className="example-surface">
         <div>

@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function FormLevelValidationExample() {
   return (
-    <Card title="Form Level Validation" eyebrow="Forms / Example">
+    <Card title="폼 단위 검증" eyebrow="폼과 검증 / 좋은 예">
       <p>여러 필드 간 규칙을 폼 단위에서 검증합니다.</p>
       <div className="example-surface">
         <div>

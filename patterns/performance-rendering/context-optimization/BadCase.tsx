@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ContextOptimizationBadCase() {
   return (
-    <Card title="Context Optimization" eyebrow="Performance Rendering / Bad Case">
+    <Card title="Context 최적화" eyebrow="렌더링 성능 / 나쁜 예">
       <p>Context 변경 범위를 줄여 불필요한 렌더를 막습니다.</p>
       <div className="example-surface">
         <div>

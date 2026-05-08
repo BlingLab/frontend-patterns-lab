@@ -3,7 +3,7 @@ import { PolymorphicButton } from './PolymorphicButton';
 
 export default function PolymorphicComponentExample() {
   return (
-    <Card title="Polymorphic Component" eyebrow="컴포넌트 조합 / Example">
+    <Card title="다형성 컴포넌트" eyebrow="컴포넌트 조합 / 좋은 예">
       <p>같은 버튼 스타일을 유지하되, 액션은 button으로 이동은 anchor로 렌더링합니다.</p>
       <div className="example-surface">
         <div>

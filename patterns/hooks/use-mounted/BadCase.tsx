@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UseMountedBadCase() {
   return (
-    <Card title="Use Mounted" eyebrow="Hooks / Bad Case">
+    <Card title="마운트 여부 훅" eyebrow="훅과 로직 재사용 / 나쁜 예">
       <p>컴포넌트 마운트 여부를 비동기 흐름에서 확인합니다.</p>
       <div className="example-surface">
         <div>

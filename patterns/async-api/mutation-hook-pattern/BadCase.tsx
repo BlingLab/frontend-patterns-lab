@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function MutationHookPatternBadCase() {
   return (
-    <Card title="Mutation Hook Pattern" eyebrow="Async API / Bad Case">
+    <Card title="mutation 훅 패턴" eyebrow="비동기와 API 상태 / 나쁜 예">
       <p>쓰기 요청을 명령형 mutation 훅으로 제공합니다.</p>
       <div className="example-surface">
         <div>

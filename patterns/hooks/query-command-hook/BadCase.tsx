@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function QueryCommandHookBadCase() {
   return (
-    <Card title="Query Command Hook" eyebrow="Hooks / Bad Case">
+    <Card title="조회/명령 훅 분리" eyebrow="훅과 로직 재사용 / 나쁜 예">
       <p>조회 훅과 명령 훅을 분리합니다.</p>
       <div className="example-surface">
         <div>

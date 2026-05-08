@@ -10,7 +10,7 @@ type PageHeaderProps = {
 
 function PageHeader({ title, description, actions }: PageHeaderProps) {
   return (
-    <Card title={title} eyebrow="Slot Pattern">
+    <Card title={title} eyebrow="컴포넌트 조합 / 좋은 예">
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'flex-start' }}>
         <div>
           {description ? <div>{description}</div> : null}

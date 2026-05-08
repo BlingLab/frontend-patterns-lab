@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function DependentFieldsBadCase() {
   return (
-    <Card title="Dependent Fields" eyebrow="Forms / Bad Case">
+    <Card title="의존 필드" eyebrow="폼과 검증 / 나쁜 예">
       <p>한 필드 값이 다른 필드 선택지를 결정합니다.</p>
       <div className="example-surface">
         <div>

@@ -25,7 +25,7 @@ export default function HeadlessComponentExample() {
   const notification = useToggleButton(true);
 
   return (
-    <Card title="Headless Component" eyebrow="컴포넌트 조합 / Example">
+    <Card title="헤드리스 컴포넌트" eyebrow="컴포넌트 조합 / 좋은 예">
       <p>훅은 토글 동작과 접근성 props만 제공하고, 호출부가 버튼 표현을 결정합니다.</p>
       <div className="example-surface">
         <div>

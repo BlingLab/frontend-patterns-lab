@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ListRenderingExample() {
   return (
-    <Card title="List Rendering" eyebrow="Performance Rendering / Example">
+    <Card title="목록 렌더링" eyebrow="렌더링 성능 / 좋은 예">
       <p>큰 목록 렌더링 비용을 줄입니다.</p>
       <div className="example-surface">
         <div>

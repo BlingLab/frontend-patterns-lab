@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function DirtyStateBadCase() {
   return (
-    <Card title="Dirty State" eyebrow="Forms / Bad Case">
+    <Card title="변경 여부 상태" eyebrow="폼과 검증 / 나쁜 예">
       <p>초기값 대비 변경 여부를 추적합니다.</p>
       <div className="example-surface">
         <div>

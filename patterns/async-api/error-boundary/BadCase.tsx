@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ErrorBoundaryBadCase() {
   return (
-    <Card title="Error Boundary" eyebrow="Async API / Bad Case">
+    <Card title="에러 경계" eyebrow="비동기와 API 상태 / 나쁜 예">
       <p>렌더링 실패를 화면 경계에서 복구합니다.</p>
       <div className="example-surface">
         <div>

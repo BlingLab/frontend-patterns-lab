@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function PendingStateBadCase() {
   return (
-    <Card title="Pending State" eyebrow="UI State / Bad Case">
+    <Card title="처리 중 상태" eyebrow="UI 상태 표현 / 나쁜 예">
       <p>처리 중인 액션의 피드백을 버튼과 영역에 표시합니다.</p>
       <div className="example-surface">
         <div>

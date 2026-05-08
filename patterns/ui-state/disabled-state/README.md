@@ -9,7 +9,7 @@
 
 ## 패턴 형태
 
-- 분류: UI State
+- 분류: UI 상태 표현
 - 형태: Availability State
 - 목적: 로딩, 빈 상태, 에러, pending을 어떻게 표현할 것인가
 

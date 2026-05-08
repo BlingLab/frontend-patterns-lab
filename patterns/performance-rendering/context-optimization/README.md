@@ -9,7 +9,7 @@ Context value와 Provider 범위를 쪼개 불필요한 렌더를 줄입니다.
 
 ## 패턴 형태
 
-- 분류: Performance Rendering
+- 분류: 렌더링 성능
 - 형태: Context Performance
 - 목적: 렌더링 비용을 어떻게 줄이고 관찰할 것인가
 

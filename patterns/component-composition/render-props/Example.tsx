@@ -14,7 +14,7 @@ function ToggleState({ children }: ToggleStateProps) {
 
 export default function RenderPropsExample() {
   return (
-    <Card title="Render Props" eyebrow="컴포넌트 조합 / Example">
+    <Card title="렌더 프롭스" eyebrow="컴포넌트 조합 / 좋은 예">
       <p>ToggleState는 상태와 명령만 제공하고, 렌더링은 호출부 함수가 결정합니다.</p>
       <ToggleState>
         {({ on, toggle }) => (

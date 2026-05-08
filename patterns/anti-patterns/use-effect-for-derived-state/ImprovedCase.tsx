@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UseEffectForDerivedStateImprovedCase() {
   return (
-    <Card title="Use Effect For Derived State" eyebrow="Anti Patterns / Improved Case">
+    <Card title="파생 상태를 effect로 만들기" eyebrow="안티패턴 / 개선 예">
       <p>계산 가능한 값을 effect와 state로 중복 저장합니다.</p>
       <div className="example-surface">
         <div>

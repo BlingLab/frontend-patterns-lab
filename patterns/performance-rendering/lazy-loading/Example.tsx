@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function LazyLoadingExample() {
   return (
-    <Card title="Lazy Loading" eyebrow="Performance Rendering / Example">
+    <Card title="지연 로딩" eyebrow="렌더링 성능 / 좋은 예">
       <p>초기 화면에 필요 없는 코드를 늦게 불러옵니다.</p>
       <div className="example-surface">
         <div>

@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UseAsyncBadCase() {
   return (
-    <Card title="Use Async" eyebrow="Hooks / Bad Case">
+    <Card title="비동기 상태 훅" eyebrow="훅과 로직 재사용 / 나쁜 예">
       <p>비동기 요청 상태를 loading/error/data로 모델링합니다.</p>
       <div className="example-surface">
         <div>

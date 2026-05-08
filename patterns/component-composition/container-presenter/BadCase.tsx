@@ -7,7 +7,7 @@ const members = [
 
 export default function ContainerPresenterBadCase() {
   return (
-    <Card title="Container Presenter" eyebrow="컴포넌트 조합 / Bad Case">
+    <Card title="컨테이너/프리젠터" eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>데이터 가공, 이벤트 처리, 화면 표현이 한 컴포넌트에 섞여 있습니다.</p>
       <div className="example-surface">
         {members.map((member) => (

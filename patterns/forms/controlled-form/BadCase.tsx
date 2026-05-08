@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ControlledFormBadCase() {
   return (
-    <Card title="Controlled Form" eyebrow="Forms / Bad Case">
+    <Card title="제어 폼" eyebrow="폼과 검증 / 나쁜 예">
       <p>입력 값을 React 상태로 직접 제어합니다.</p>
       <div className="example-surface">
         <div>

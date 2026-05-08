@@ -71,7 +71,7 @@ const Tabs = {
 
 export default function CompoundComponentExample() {
   return (
-    <Card title="Compound Component" eyebrow="컴포넌트 조합 / Example">
+    <Card title="합성 컴포넌트" eyebrow="컴포넌트 조합 / 좋은 예">
       <p>Root가 선택 상태를 제공하고 Trigger와 Panel이 context를 통해 협력합니다.</p>
 
       <Tabs.Root defaultValue="profile">

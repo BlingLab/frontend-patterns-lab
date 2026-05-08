@@ -9,7 +9,7 @@ props 전달 자체를 문제로 오해해 Context를 남용하지 않습니다.
 
 ## 패턴 형태
 
-- 분류: Anti Patterns
+- 분류: 안티패턴
 - 형태: Composition Smell
 - 목적: 자주 하는 실수와 개선 방향은 무엇인가
 

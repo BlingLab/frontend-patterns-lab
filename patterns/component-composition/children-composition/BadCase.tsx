@@ -15,7 +15,7 @@ type DashboardCardProps =
 
 function DashboardCard(props: DashboardCardProps) {
   return (
-    <Card title={props.title} eyebrow="Children Composition / Bad Case">
+    <Card title={props.title} eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>카드가 공통 껍데기뿐 아니라 카드 안의 도메인 콘텐츠까지 직접 알고 있습니다.</p>
       <div className="example-surface">
         {props.variant === 'metric' ? (

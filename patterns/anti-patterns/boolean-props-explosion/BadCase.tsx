@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function BooleanPropsExplosionBadCase() {
   return (
-    <Card title="Boolean Props Explosion" eyebrow="Anti Patterns / Bad Case">
+    <Card title="boolean props 폭발" eyebrow="안티패턴 / 나쁜 예">
       <p>boolean prop 조합이 컴포넌트 상태 공간을 폭발시킵니다.</p>
       <div className="example-surface">
         <div>

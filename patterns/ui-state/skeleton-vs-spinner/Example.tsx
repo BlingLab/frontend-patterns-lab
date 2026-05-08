@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function SkeletonVsSpinnerExample() {
   return (
-    <Card title="Skeleton vs Spinner" eyebrow="UI State / Example">
+    <Card title="스켈레톤 vs 스피너" eyebrow="UI 상태 표현 / 좋은 예">
       <p>기다림의 성격에 따라 skeleton과 spinner를 구분합니다.</p>
       <div className="example-surface">
         <div>

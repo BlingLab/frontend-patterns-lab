@@ -26,7 +26,7 @@ export default function ControlledUncontrolledExample() {
   const [emailEnabled, setEmailEnabled] = useState(true);
 
   return (
-    <Card title="Controlled / Uncontrolled" eyebrow="컴포넌트 조합 / Example">
+    <Card title="제어/비제어 컴포넌트" eyebrow="컴포넌트 조합 / 좋은 예">
       <p>같은 Switch가 내부 상태 사용과 외부 상태 제어를 모두 지원합니다.</p>
       <div className="example-surface">
         <div>

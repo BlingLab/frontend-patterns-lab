@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function RequestStatusModelExample() {
   return (
-    <Card title="Request Status Model" eyebrow="Async API / Example">
+    <Card title="요청 상태 모델" eyebrow="비동기와 API 상태 / 좋은 예">
       <p>요청 상태를 불리언 묶음 대신 명시적 상태로 모델링합니다.</p>
       <div className="example-surface">
         <div>

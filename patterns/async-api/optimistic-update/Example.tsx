@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function OptimisticUpdateExample() {
   return (
-    <Card title="Optimistic Update" eyebrow="Async API / Example">
+    <Card title="낙관적 업데이트" eyebrow="비동기와 API 상태 / 좋은 예">
       <p>캐시를 먼저 갱신하고 실패 시 롤백합니다.</p>
       <div className="example-surface">
         <div>

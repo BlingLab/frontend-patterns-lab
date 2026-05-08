@@ -8,11 +8,25 @@ function groupRoutesByCategory(routes: PatternRoute[]) {
   }, {});
 }
 
+type Tab = 'example' | 'bad';
+
 export function PatternLayout({ routes }: { routes: PatternRoute[] }) {
   const [selectedSlug, setSelectedSlug] = useState(routes[0]?.slug ?? '');
-  const selectedRoute = useMemo(() => routes.find((route) => route.slug === selectedSlug) ?? routes[0], [routes, selectedSlug]);
-  const Example = selectedRoute.Component;
+  const [activeTab, setActiveTab] = useState<Tab>('example');
+
+  const selectedRoute = useMemo(
+    () => routes.find((r) => r.slug === selectedSlug) ?? routes[0],
+    [routes, selectedSlug],
+  );
   const groupedRoutes = useMemo(() => groupRoutesByCategory(routes), [routes]);
+
+  function selectPattern(slug: string) {
+    setSelectedSlug(slug);
+    setActiveTab('example');
+  }
+
+  const Example = selectedRoute.Component;
+  const BadCase = selectedRoute.BadCase;
 
   return (
     <main className="app-shell">
@@ -26,7 +40,11 @@ export function PatternLayout({ routes }: { routes: PatternRoute[] }) {
             <section key={category}>
               <h2>{category}</h2>
               {categoryRoutes.map((route) => (
-                <button key={route.slug} className={route.slug === selectedRoute.slug ? 'active' : ''} onClick={() => setSelectedSlug(route.slug)}>
+                <button
+                  key={route.slug}
+                  className={route.slug === selectedRoute.slug ? 'active' : ''}
+                  onClick={() => selectPattern(route.slug)}
+                >
                   {route.title}
                 </button>
               ))}
@@ -34,6 +52,7 @@ export function PatternLayout({ routes }: { routes: PatternRoute[] }) {
           ))}
         </nav>
       </aside>
+
       <section className="content-panel">
         <header className="pattern-header">
           <span className="eyebrow">{selectedRoute.category}</span>
@@ -41,7 +60,39 @@ export function PatternLayout({ routes }: { routes: PatternRoute[] }) {
           <span className="english-title">{selectedRoute.englishTitle}</span>
           <p>{selectedRoute.summary}</p>
         </header>
-        <Example />
+
+        {selectedRoute.whyMatters && (
+          <div className="insight-box">
+            <h4>왜 필요한가</h4>
+            <p>{selectedRoute.whyMatters}</p>
+            {selectedRoute.keyPoints && selectedRoute.keyPoints.length > 0 && (
+              <ul className="key-points">
+                {selectedRoute.keyPoints.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+
+        {BadCase && (
+          <div className="tab-bar">
+            <button
+              className={`tab-btn${activeTab === 'example' ? ' active' : ''}`}
+              onClick={() => setActiveTab('example')}
+            >
+              좋은 예
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'bad' ? ' active' : ''}`}
+              onClick={() => setActiveTab('bad')}
+            >
+              나쁜 예
+            </button>
+          </div>
+        )}
+
+        {activeTab === 'example' || !BadCase ? <Example /> : <BadCase />}
       </section>
     </main>
   );

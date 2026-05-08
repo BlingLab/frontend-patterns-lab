@@ -26,7 +26,7 @@ function InviteAction() {
 export default function ProviderPatternExample() {
   return (
     <WorkspaceProvider>
-      <Card title="Provider Pattern" eyebrow="컴포넌트 조합 / Example">
+      <Card title="Provider 패턴" eyebrow="컴포넌트 조합 / 좋은 예">
         <p>Provider가 workspace 관심사를 공급하고 필요한 하위 컴포넌트만 값을 읽습니다.</p>
         <div className="example-surface">
           <WorkspaceSummary />

@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function OveruseMemoizationExample() {
   return (
-    <Card title="Overuse Memoization" eyebrow="Anti Patterns / Example">
+    <Card title="메모이제이션 남용" eyebrow="안티패턴 / 문제 예">
       <p>비용보다 복잡도가 큰 memoization을 남발합니다.</p>
       <div className="example-surface">
         <div>

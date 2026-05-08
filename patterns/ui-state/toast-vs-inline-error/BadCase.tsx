@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ToastVsInlineErrorBadCase() {
   return (
-    <Card title="Toast vs Inline Error" eyebrow="UI State / Bad Case">
+    <Card title="토스트 vs 인라인 오류" eyebrow="UI 상태 표현 / 나쁜 예">
       <p>오류 성격에 따라 toast와 inline 메시지를 선택합니다.</p>
       <div className="example-surface">
         <div>

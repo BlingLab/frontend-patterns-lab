@@ -17,7 +17,7 @@ function FavoriteButton() {
 
 export default function HeadlessComponentBadCase() {
   return (
-    <Card title="Headless Component" eyebrow="컴포넌트 조합 / Bad Case">
+    <Card title="헤드리스 컴포넌트" eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>동작과 버튼 표현이 묶여 있어 카드형 토글이나 아이콘형 토글로 재사용하기 어렵습니다.</p>
       <div className="example-surface">
         <div>

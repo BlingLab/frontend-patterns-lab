@@ -9,7 +9,7 @@
 
 ## 패턴 형태
 
-- 분류: Performance Rendering
+- 분류: 렌더링 성능
 - 형태: List Performance
 - 목적: 렌더링 비용을 어떻게 줄이고 관찰할 것인가
 

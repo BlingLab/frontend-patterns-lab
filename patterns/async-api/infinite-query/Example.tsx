@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function InfiniteQueryExample() {
   return (
-    <Card title="Infinite Query" eyebrow="Async API / Example">
+    <Card title="무한 조회" eyebrow="비동기와 API 상태 / 좋은 예">
       <p>무한 스크롤 데이터를 페이지 묶음으로 관리합니다.</p>
       <div className="example-surface">
         <div>

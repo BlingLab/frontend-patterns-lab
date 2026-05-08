@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function EffectCleanupMissingBadCase() {
   return (
-    <Card title="Effect Cleanup Missing" eyebrow="Anti Patterns / Bad Case">
+    <Card title="effect cleanup 누락" eyebrow="안티패턴 / 나쁜 예">
       <p>구독, 타이머, 요청 정리를 누락합니다.</p>
       <div className="example-surface">
         <div>

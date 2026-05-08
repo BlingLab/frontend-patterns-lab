@@ -27,7 +27,7 @@ function WorkspaceContent(props: WorkspaceProps) {
 
 export default function ProviderPatternBadCase() {
   return (
-    <Card title="Provider Pattern" eyebrow="컴포넌트 조합 / Bad Case">
+    <Card title="Provider 패턴" eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>중간 컴포넌트가 쓰지 않는 workspace props를 계속 전달합니다.</p>
       <WorkspacePanel workspaceName="Frontend Lab" role="owner" canInvite />
     </Card>

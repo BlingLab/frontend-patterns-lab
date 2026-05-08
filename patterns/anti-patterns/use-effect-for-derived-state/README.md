@@ -9,7 +9,7 @@
 
 ## 패턴 형태
 
-- 분류: Anti Patterns
+- 분류: 안티패턴
 - 형태: Derived State Smell
 - 목적: 자주 하는 실수와 개선 방향은 무엇인가
 

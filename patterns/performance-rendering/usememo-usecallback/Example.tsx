@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UsememoUsecallbackExample() {
   return (
-    <Card title="useMemo / useCallback" eyebrow="Performance Rendering / Example">
+    <Card title="useMemo/useCallback 기준" eyebrow="렌더링 성능 / 좋은 예">
       <p>값과 콜백 안정성이 실제로 필요한 지점에만 memoization을 적용합니다.</p>
       <div className="example-surface">
         <div>

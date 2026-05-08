@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function DynamicFieldsExample() {
   return (
-    <Card title="Dynamic Fields" eyebrow="Forms / Example">
+    <Card title="동적 필드" eyebrow="폼과 검증 / 좋은 예">
       <p>반복 가능한 필드 배열을 안정적으로 추가/삭제합니다.</p>
       <div className="example-surface">
         <div>

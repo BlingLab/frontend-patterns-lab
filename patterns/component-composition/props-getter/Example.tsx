@@ -5,7 +5,7 @@ export default function PropsGetterExample() {
   const favorite = useToggle();
 
   return (
-    <Card title="Props Getter" eyebrow="컴포넌트 조합 / Example">
+    <Card title="props getter 패턴" eyebrow="컴포넌트 조합 / 좋은 예">
       <p>getToggleProps가 접근성 props와 내부 이벤트를 제공하면서 호출부 이벤트도 보존합니다.</p>
       <div className="example-surface">
         <div>

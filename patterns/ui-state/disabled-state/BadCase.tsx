@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function DisabledStateBadCase() {
   return (
-    <Card title="Disabled State" eyebrow="UI State / Bad Case">
+    <Card title="비활성 상태" eyebrow="UI 상태 표현 / 나쁜 예">
       <p>불가능한 액션의 이유와 상태를 명확히 합니다.</p>
       <div className="example-surface">
         <div>

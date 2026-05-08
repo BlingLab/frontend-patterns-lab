@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ConfirmDialogExample() {
   return (
-    <Card title="Confirm Dialog" eyebrow="UI State / Example">
+    <Card title="확인 다이얼로그" eyebrow="UI 상태 표현 / 좋은 예">
       <p>파괴적 행동 전에 의도를 확인합니다.</p>
       <div className="example-surface">
         <div>

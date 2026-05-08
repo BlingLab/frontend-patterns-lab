@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function IndexAsKeyBadCase() {
   return (
-    <Card title="Index As Key" eyebrow="Anti Patterns / Bad Case">
+    <Card title="index를 key로 사용" eyebrow="안티패턴 / 나쁜 예">
       <p>배열 index를 key로 사용해 상태와 DOM 재사용이 꼬입니다.</p>
       <div className="example-surface">
         <div>

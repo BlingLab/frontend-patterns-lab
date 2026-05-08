@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function RenderTrackingExample() {
   return (
-    <Card title="Render Tracking" eyebrow="Performance Rendering / Example">
+    <Card title="렌더 추적" eyebrow="렌더링 성능 / 좋은 예">
       <p>렌더 횟수를 관찰해 병목을 찾습니다.</p>
       <div className="example-surface">
         <div>

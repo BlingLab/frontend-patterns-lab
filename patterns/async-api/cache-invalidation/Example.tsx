@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function CacheInvalidationExample() {
   return (
-    <Card title="Cache Invalidation" eyebrow="Async API / Example">
+    <Card title="캐시 무효화" eyebrow="비동기와 API 상태 / 좋은 예">
       <p>쓰기 이후 어떤 조회 캐시를 무효화할지 명시합니다.</p>
       <div className="example-surface">
         <div>

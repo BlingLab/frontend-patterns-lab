@@ -9,7 +9,7 @@ memoization을 비용이 큰 하위 트리의 경계에 둡니다.
 
 ## 패턴 형태
 
-- 분류: Performance Rendering
+- 분류: 렌더링 성능
 - 형태: Memo Boundary
 - 목적: 렌더링 비용을 어떻게 줄이고 관찰할 것인가
 

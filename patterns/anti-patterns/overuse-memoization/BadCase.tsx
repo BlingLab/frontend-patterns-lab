@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function OveruseMemoizationBadCase() {
   return (
-    <Card title="Overuse Memoization" eyebrow="Anti Patterns / Bad Case">
+    <Card title="메모이제이션 남용" eyebrow="안티패턴 / 나쁜 예">
       <p>비용보다 복잡도가 큰 memoization을 남발합니다.</p>
       <div className="example-surface">
         <div>

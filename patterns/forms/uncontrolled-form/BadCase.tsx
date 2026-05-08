@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UncontrolledFormBadCase() {
   return (
-    <Card title="Uncontrolled Form" eyebrow="Forms / Bad Case">
+    <Card title="비제어 폼" eyebrow="폼과 검증 / 나쁜 예">
       <p>DOM의 입력 값을 필요 시점에 읽습니다.</p>
       <div className="example-surface">
         <div>

@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function MixedServerClientStateBadCase() {
   return (
-    <Card title="Mixed Server / Client State" eyebrow="Anti Patterns / Bad Case">
+    <Card title="서버/클라이언트 상태 혼합" eyebrow="안티패턴 / 나쁜 예">
       <p>서버 상태와 클라이언트 상태의 소유권을 섞습니다.</p>
       <div className="example-surface">
         <div>

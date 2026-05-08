@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ComponentSplittingBadCase() {
   return (
-    <Card title="Component Splitting" eyebrow="Performance Rendering / Bad Case">
+    <Card title="컴포넌트 분리" eyebrow="렌더링 성능 / 나쁜 예">
       <p>변경 빈도가 다른 영역을 컴포넌트로 분리합니다.</p>
       <div className="example-surface">
         <div>

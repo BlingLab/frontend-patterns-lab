@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function EmptyStateExample() {
   return (
-    <Card title="Empty State" eyebrow="UI State / Example">
+    <Card title="빈 상태" eyebrow="UI 상태 표현 / 좋은 예">
       <p>빈 결과를 다음 행동으로 연결합니다.</p>
       <div className="example-surface">
         <div>

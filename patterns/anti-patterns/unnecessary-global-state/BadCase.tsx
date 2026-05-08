@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UnnecessaryGlobalStateBadCase() {
   return (
-    <Card title="Unnecessary Global State" eyebrow="Anti Patterns / Bad Case">
+    <Card title="불필요한 전역 상태" eyebrow="안티패턴 / 나쁜 예">
       <p>지역 상태로 충분한 값을 전역 store에 올립니다.</p>
       <div className="example-surface">
         <div>

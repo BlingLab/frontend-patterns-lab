@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function MutationHookPatternExample() {
   return (
-    <Card title="Mutation Hook Pattern" eyebrow="Async API / Example">
+    <Card title="mutation 훅 패턴" eyebrow="비동기와 API 상태 / 좋은 예">
       <p>쓰기 요청을 명령형 mutation 훅으로 제공합니다.</p>
       <div className="example-surface">
         <div>

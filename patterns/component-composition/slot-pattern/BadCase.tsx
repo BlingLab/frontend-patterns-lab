@@ -10,7 +10,7 @@ type PageHeaderProps = {
 
 function PageHeader({ title, memberCount, showExport, showInvite }: PageHeaderProps) {
   return (
-    <Card title={title} eyebrow="Slot Pattern / Bad Case">
+    <Card title={title} eyebrow="컴포넌트 조합 / 나쁜 예">
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'flex-start' }}>
         <p>활성 멤버 {memberCount}명을 관리하고 있습니다.</p>
         <div style={{ display: 'flex', gap: 8 }}>

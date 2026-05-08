@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function ServerErrorMappingExample() {
   return (
-    <Card title="Server Error Mapping" eyebrow="Forms / Example">
+    <Card title="서버 오류 매핑" eyebrow="폼과 검증 / 좋은 예">
       <p>서버 오류를 필드 오류와 전역 오류로 매핑합니다.</p>
       <div className="example-surface">
         <div>

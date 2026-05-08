@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function MultiStepFormBadCase() {
   return (
-    <Card title="Multi Step Form" eyebrow="Forms / Bad Case">
+    <Card title="단계형 폼" eyebrow="폼과 검증 / 나쁜 예">
       <p>긴 폼을 단계별 상태와 검증으로 나눕니다.</p>
       <div className="example-surface">
         <div>

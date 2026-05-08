@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function LoadingEmptyErrorBadCase() {
   return (
-    <Card title="Loading / Empty / Error" eyebrow="UI State / Bad Case">
+    <Card title="로딩/빈 상태/에러" eyebrow="UI 상태 표현 / 나쁜 예">
       <p>목록 화면의 대표 상태를 일관되게 분기합니다.</p>
       <div className="example-surface">
         <div>

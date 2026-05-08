@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function MemoizationBoundaryBadCase() {
   return (
-    <Card title="Memoization Boundary" eyebrow="Performance Rendering / Bad Case">
+    <Card title="메모이제이션 경계" eyebrow="렌더링 성능 / 나쁜 예">
       <p>memo의 경계를 비용이 큰 하위 트리에 둡니다.</p>
       <div className="example-surface">
         <div>

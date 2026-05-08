@@ -5,7 +5,7 @@ export default function PropsGetterBadCase() {
   const [on, setOn] = useState(false);
 
   return (
-    <Card title="Props Getter" eyebrow="컴포넌트 조합 / Bad Case">
+    <Card title="props getter 패턴" eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>호출부가 접근성 props와 내부 이벤트를 매번 직접 조합합니다.</p>
       <div className="example-surface">
         <div>

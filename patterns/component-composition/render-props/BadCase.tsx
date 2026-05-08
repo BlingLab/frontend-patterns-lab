@@ -30,7 +30,7 @@ function ToggleAction() {
 
 export default function RenderPropsBadCase() {
   return (
-    <Card title="Render Props" eyebrow="컴포넌트 조합 / Bad Case">
+    <Card title="렌더 프롭스" eyebrow="컴포넌트 조합 / 나쁜 예">
       <p>서로 다른 UI가 같은 토글 로직을 각자 복사하고, 상태도 서로 독립적으로 어긋납니다.</p>
       <div className="example-surface">
         <ToggleSummary />

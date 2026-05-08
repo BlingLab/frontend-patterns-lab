@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function PaginationBadCase() {
   return (
-    <Card title="Pagination" eyebrow="Async API / Bad Case">
+    <Card title="페이지네이션" eyebrow="비동기와 API 상태 / 나쁜 예">
       <p>페이지 기반 목록 조회의 상태와 요청을 분리합니다.</p>
       <div className="example-surface">
         <div>

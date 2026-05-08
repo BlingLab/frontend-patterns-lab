@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function RenderTrackingBadCase() {
   return (
-    <Card title="Render Tracking" eyebrow="Performance Rendering / Bad Case">
+    <Card title="렌더 추적" eyebrow="렌더링 성능 / 나쁜 예">
       <p>렌더 횟수를 관찰해 병목을 찾습니다.</p>
       <div className="example-surface">
         <div>

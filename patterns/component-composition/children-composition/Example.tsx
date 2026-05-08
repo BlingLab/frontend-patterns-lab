@@ -9,7 +9,7 @@ type DashboardSectionProps = {
 
 function DashboardSection({ title, description, children }: DashboardSectionProps) {
   return (
-    <Card title={title} eyebrow="Children Composition">
+    <Card title={title} eyebrow="컴포넌트 조합 / 좋은 예">
       <p>{description}</p>
       <div className="example-surface">{children}</div>
     </Card>

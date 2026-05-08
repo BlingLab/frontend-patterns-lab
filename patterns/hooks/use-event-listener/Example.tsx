@@ -2,7 +2,7 @@ import { Card } from '../../../shared/components/Card';
 
 export default function UseEventListenerExample() {
   return (
-    <Card title="Use Event Listener" eyebrow="Hooks / Example">
+    <Card title="이벤트 구독 훅" eyebrow="훅과 로직 재사용 / 좋은 예">
       <p>이벤트 구독과 정리를 훅 경계 안에 둡니다.</p>
       <div className="example-surface">
         <div>
