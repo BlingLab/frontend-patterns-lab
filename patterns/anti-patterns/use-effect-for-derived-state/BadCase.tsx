@@ -1,0 +1,19 @@
+import { Card } from '../../../shared/components/Card';
+
+export default function UseEffectForDerivedStateBadCase() {
+  return (
+    <Card title="Use Effect For Derived State" eyebrow="Anti Patterns / Bad Case">
+      <p>계산 가능한 값을 effect와 state로 중복 저장합니다.</p>
+      <div className="example-surface">
+        <div>
+          <strong>상황</strong>
+          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+        </div>
+        <div>
+          <strong>판단</strong>
+          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+        </div>
+      </div>
+    </Card>
+  );
+}

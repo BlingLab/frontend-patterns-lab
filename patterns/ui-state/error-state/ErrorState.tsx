@@ -1,0 +1,1 @@
+export function ErrorState({ message, onRetry }: { message: string; onRetry: () => void }) { return <div role="alert"><p>{message}</p><button className="button" onClick={onRetry}>다시 시도</button></div>; }

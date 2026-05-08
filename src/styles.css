@@ -1,0 +1,119 @@
+:root {
+  color: #1f2933;
+  background: #f6f7f9;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #111827;
+  color: #f9fafb;
+  padding: 32px 24px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.brand-block h1 {
+  margin: 8px 0 24px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.eyebrow {
+  color: #3b82f6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.pattern-nav section + section { margin-top: 24px; }
+.pattern-nav h2 {
+  color: #9ca3af;
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+.pattern-nav button {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #e5e7eb;
+  cursor: pointer;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.pattern-nav button:hover,
+.pattern-nav button.active {
+  background: #263244;
+  color: #ffffff;
+}
+
+.content-panel {
+  padding: 48px;
+  max-width: 980px;
+  width: 100%;
+}
+
+.pattern-header {
+  margin-bottom: 24px;
+}
+
+.pattern-header h2 {
+  margin: 8px 0;
+  font-size: 34px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+}
+
+.card h3 { margin: 4px 0 12px; }
+.example-surface {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 20px;
+}
+
+.example-surface div {
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.example-surface strong,
+.example-surface span { display: block; }
+.example-surface span { color: #52606d; margin-top: 6px; }
+.button {
+  border: 1px solid #1f2933;
+  border-radius: 6px;
+  background: #1f2933;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+.button.danger { background: #b42318; border-color: #b42318; }
+
+@media (max-width: 840px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { max-height: none; }
+  .content-panel { padding: 28px 20px; }
+}
