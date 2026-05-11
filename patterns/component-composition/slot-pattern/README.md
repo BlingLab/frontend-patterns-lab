@@ -21,6 +21,12 @@
 
 Slot pattern은 중간 지점입니다. 레이아웃 컴포넌트는 "이 위치에는 actions가 들어간다", "이 위치에는 description이 들어간다"처럼 영역의 의미와 배치를 책임집니다. 호출부는 각 영역에 들어갈 JSX를 직접 제공합니다.
 
+## 핵심 원리
+
+- header, footer, actions처럼 영역 이름이 명시된다
+- 호출부가 어떤 영역에 무엇을 넣는지 JSX에서 바로 읽힌다
+- 특정 slot을 생략하면 해당 영역이 렌더되지 않아도 된다
+
 ## 언제 사용하는가
 
 - 화면 구조 안에 교체 가능한 영역이 둘 이상일 때
@@ -122,6 +128,12 @@ function PageHeader({ title, description, actions }: PageHeaderProps) {
 - slot과 boolean option을 함께 제공해 같은 영역을 두 방식으로 제어하게 만듭니다.
 - slot fallback이 복잡해져 호출부보다 내부 분기가 더 커집니다.
 - `actions` slot 안의 버튼 간격까지 호출부가 매번 맞추게 만듭니다.
+
+## 테스트와 검증 포인트
+
+- 필수 slot이 없을 때 fallback이나 오류가 의도대로 동작하는지 확인합니다.
+- header, actions, footer를 생략하거나 교체해도 레이아웃이 깨지지 않는지 확인합니다.
+- slot이 단순 ReactNode인지, props를 받아야 하는 render slot인지 구분합니다.
 
 ## 관련 패턴
 

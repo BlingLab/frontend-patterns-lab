@@ -19,6 +19,12 @@ Headless hook은 보통 상태만으로 충분하지 않습니다. DOM에 붙여
 
 Props getter는 호출부가 자신의 props를 인자로 넘기면 내부 props와 합성한 결과를 돌려줍니다. 내부 이벤트는 사용자 이벤트를 먼저 실행할지, 나중에 실행할지, `event.defaultPrevented`를 존중할지 같은 정책을 한 곳에서 정할 수 있습니다.
 
+## 핵심 원리
+
+- getButtonProps()가 aria-*, onClick, role을 한번에 반환한다
+- 사용자 커스텀 handler와 라이브러리 handler가 모두 실행된다
+- Downshift, react-table 등이 이 패턴으로 API를 제공한다
+
 ## 언제 사용하는가
 
 - headless hook이 DOM props를 제공해야 할 때
@@ -80,6 +86,12 @@ Props getter는 "호출부에 자유를 주되, 필수 props는 빠지지 않게
 - 사용자 이벤트를 실행하지 않고 내부 이벤트만 실행합니다.
 - `aria-*` 값이 상태와 동기화되지 않습니다.
 - getter 이름은 있지만 사실상 단순 props object를 반환합니다.
+
+## 테스트와 검증 포인트
+
+- 사용자 이벤트 핸들러와 내부 이벤트 핸들러가 모두 호출되는지 확인합니다.
+- aria 속성, id, ref, disabled 같은 필수 props가 누락되지 않는지 봅니다.
+- 호출부 props가 내부 안전장치를 덮어써도 되는 항목과 안 되는 항목을 구분합니다.
 
 ## 관련 패턴
 

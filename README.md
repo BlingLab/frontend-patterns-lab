@@ -152,6 +152,12 @@ React 코드에서 자주 반복되는 실수와 리팩터링 방향을 나쁜 �
 - 렌더링 성능 패턴은 측정 후 적용합니다.
 - 안티패턴은 금지 목록이 아니라 리팩터링 신호로 봅니다.
 
+## 예제를 읽는 기준
+
+플레이그라운드는 각 패턴을 `좋은 예`와 `나쁜 예` 탭으로 비교합니다. 좋은 예는 정답 코드가 아니라 책임 경계를 좁힌 기준선이고, 나쁜 예는 코드 리뷰에서 실제로 지적해야 할 변경 비용을 드러내는 재현용 사례입니다.
+
+예제를 볼 때는 버튼을 눌러 상태가 바뀌는 흐름, 입력값이 보존되거나 꼬이는 흐름, 서버 응답이 UI 모델로 바뀌는 경계처럼 “변경이 일어나는 순간”을 먼저 확인합니다. 문서의 체크리스트와 예제의 동작이 연결되어야 패턴을 외운 것이 아니라 판단 기준으로 쓸 수 있습니다.
+
 ## 실행
 
 ```bash
@@ -161,4 +167,6 @@ npm run dev
 
 ## 리서치 기준
 
-React 공식 문서의 composition, state, hooks, effect, input, reducer, external store 문서와 TanStack Query의 server state 관점, Radix의 Slot/asChild 합성 방식, WAI-ARIA 패턴, web.dev의 list virtualization 가이드를 기준으로 정리합니다.
+문서는 특정 라이브러리 유행보다 오래 가는 기준을 먼저 둡니다. React 공식 문서의 state structure, effect, custom hook, reducer, input, Suspense, external store 문서를 1차 기준으로 삼고, 서버 상태는 TanStack Query의 query key, invalidation, optimistic update 가이드를 기준으로 정리합니다.
+
+UI 접근성은 WAI-ARIA Authoring Practices와 MDN의 ARIA 문서를 함께 확인합니다. 렌더링 성능은 React memoization 문서와 web.dev의 list virtualization 가이드를 참고하되, 모든 최적화 문서에는 “측정 후 적용” 기준을 명시합니다.

@@ -21,6 +21,12 @@
 
 Polymorphic component는 스타일과 공통 동작은 하나로 유지하면서 실제 element를 호출부가 선택하게 합니다. Radix의 `asChild`도 비슷한 문제를 해결합니다. primitive가 DOM element를 고정하지 않고 호출부의 element에 동작을 합성할 수 있게 합니다.
 
+## 핵심 원리
+
+- as="a"면 링크, as="button"이면 버튼으로 렌더된다
+- 공통 className, variant, size 로직을 한 곳에서 관리한다
+- TypeScript로 as에 따라 props 타입이 자동으로 좁혀진다
+
 ## 언제 사용하는가
 
 - 버튼처럼 보이지만 실제로는 링크여야 하는 UI가 있을 때
@@ -75,6 +81,12 @@ Polymorphic component는 "스타일은 하나인데 semantic element가 여러 �
 - `as="a"`인데 `href` 없이 버튼처럼 사용합니다.
 - `disabled`를 anchor에 그대로 넘겨 실제 비활성화가 되지 않습니다.
 - 타입 구현이 과해져 컴포넌트 사용보다 타입 디버깅이 어려워집니다.
+
+## 테스트와 검증 포인트
+
+- as 값에 따라 올바른 HTML semantic과 필수 prop이 유지되는지 확인합니다.
+- button의 disabled와 anchor의 aria-disabled처럼 element별 차이를 테스트합니다.
+- 공통 스타일 병합이 사용자 className과 충돌하지 않는지 확인합니다.
 
 ## 관련 패턴
 

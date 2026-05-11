@@ -10,14 +10,20 @@
 ## 패턴 형태
 
 - 분류: UI 상태 표현
-- 형태: Availability State
-- 목적: 로딩, 빈 상태, 에러, pending을 어떻게 표현할 것인가
+- 형태: Feedback State / Recovery Path
+- 핵심 질문: 현재 상태와 다음 행동을 사용자가 바로 이해할 수 있는가
 
 ## 왜 필요한가
 
-disabled만 걸면 사용자는 왜 버튼을 누를 수 없는지 알 수 없습니다.
+버튼이 왜 비활성 상태인지 모르면 사용자가 좌절합니다. 비활성 버튼에 tooltip이나 도움말을 붙여 "무엇을 해야 활성화되는지" 알려주면 UX가 크게 개선됩니다.
 
-이 문서는 패턴 이름을 외우기 위한 것이 아니라, 리뷰 중 "이 책임은 어디에 있어야 하는가"를 판단하기 위한 기준입니다.
+UI 상태 문서는 데이터 구조보다 사용자 피드백을 중심으로 봐야 합니다. 같은 실패라도 사용자가 고칠 수 있는 필드 오류, 일시적 시스템 오류, 복구 불가능한 오류는 표시 위치와 다음 행동이 다릅니다. 접근성 관점에서는 disabled, modal, error message가 focus와 보조 기술에 어떻게 전달되는지도 함께 봅니다.
+
+## 핵심 원리
+
+- 단순 disabled 속성만으론 이유를 전달하지 못한다
+- tooltip이나 helper text로 비활성 이유를 명시한다
+- aria-disabled와 함께 스크린 리더도 고려한다
 
 ## 언제 사용하는가
 
@@ -36,55 +42,48 @@ disabled만 걸면 사용자는 왜 버튼을 누를 수 없는지 알 수 없�
 2. 가능하면 가까운 위치에 이유를 보여준다
 3. 권한 문제와 입력 문제를 구분한다
 
-## 실무 예시
-
-`Disabled State`의 핵심은 액션이 불가능한 상태와 이유를 명확히 표현하는 방식입니다. 사용자가 현재 화면 상태를 오해하지 않도록 로딩, 실패, 빈 결과, 처리 중 상태를 분리할 때 사용합니다.
-
 ## 기본 코드 형태
 
 ```tsx
-if (state.status === 'loading') return <LoadingState />;
-if (state.status === 'error') return <ErrorState onRetry={retry} />;
-if (state.status === 'success' && state.data.length === 0) return <EmptyState />;
-return <Content data={state.data} />;
+const disabledReason = !hasSelection ? '항목을 먼저 선택하세요.' : undefined;
+
+<Button disabled={Boolean(disabledReason)} aria-describedby="bulk-action-help">
+  선택 항목 삭제
+</Button>
+<p id="bulk-action-help">{disabledReason}</p>
 ```
-
-## 구분 기준
-
-이 패턴은 "지금 화면이 어떤 상태이고 사용자가 무엇을 할 수 있는가"를 표현하는 문제입니다. 데이터 구조보다 피드백과 다음 행동이 핵심이면 `Disabled State` 패턴을 봅니다.
-
-패턴 유형으로는 `Availability State`에 가깝습니다. 같은 카테고리의 다른 패턴과 비교할 때 "API 모양", "상태 소유권", "변경 영향 범위"를 기준으로 구분합니다.
-
-## 코드 리뷰 체크리스트
-
-- 사용자가 현재 상태를 한눈에 이해할 수 있는가?
-- 복구 가능한 상태에는 다음 행동이 제공되는가?
-- loading, empty, error가 서로 잘못 대체되지 않는가?
-
-## 흔한 실수
-
-- 빈 결과를 오류처럼 보여주거나 오류를 빈 상태처럼 숨깁니다.
-- pending 상태 없이 버튼만 disabled 처리합니다.
-- 사용자가 할 수 있는 다음 행동을 제공하지 않습니다.
-
-## 적용 흐름
-
-1. 불가능한 조건을 계산한다
-2. 가능하면 가까운 위치에 이유를 보여준다
-3. 권한 문제와 입력 문제를 구분한다
-
-## 적용하지 않을 신호
-
-- 사용자가 이유를 알아야 하는데 tooltip/문구가 없는 경우
-- disabled 때문에 focus와 설명 접근성이 사라지는 경우
-
-## 예제 읽는 법
-
-`Example.tsx`와 `BadCase.tsx`를 함께 봅니다. 좋은 예는 책임 경계와 호출부 API가 어떻게 정리되는지, 나쁜 예는 변경 이유가 어디서 섞이는지 확인하는 용도입니다.
 
 ## 실무 판단 기준
 
-이 패턴을 적용했을 때 호출부가 더 읽기 쉬워지고, 변경 이유가 더 좁은 파일에 머물고, 테스트할 단위가 분명해지면 적용할 가치가 있습니다. 반대로 파일 수만 늘고 의사결정이 더 어려워지면 아직 적용 시점이 아닙니다.
+- loading, empty, error, success를 한 목록 화면에서 모두 분기합니다.
+- 사용자가 수정할 위치가 명확하면 inline 메시지를 쓰고, 전역 알림은 toast를 씁니다.
+- 파괴적 행동은 confirm dialog로 한 번 더 확인하되 취소와 focus 흐름을 명확히 합니다.
+- disabled 상태는 이유와 해결 방법을 가까운 위치에 설명합니다.
+
+## 코드 리뷰 체크리스트
+
+- 현재 상태를 한눈에 이해할 수 있는 시각적 신호가 있는가?
+- 복구 가능한 상태에 retry, reset, create, edit 같은 다음 행동이 있는가?
+- 비활성 컨트롤의 이유가 tooltip, helper text, aria 속성으로 전달되는가?
+- modal/dialog는 focus 이동과 닫기 동작이 예측 가능한가?
+
+## 흔한 실수
+
+- 빈 결과를 에러처럼 보여주거나 에러를 빈 상태처럼 숨깁니다.
+- 버튼을 disabled만 하고 처리 중인지, 권한이 없는지, 입력이 부족한지 설명하지 않습니다.
+- toast로 폼 필드 오류를 보내 사용자가 화면에서 고칠 위치를 찾지 못합니다.
+
+## 테스트와 검증 포인트
+
+- 느린 응답, 빈 데이터, 서버 오류, 권한 없음, 입력 부족 상태를 각각 강제로 만들어 확인합니다.
+- 키보드만으로 confirm dialog를 열고 닫고 취소할 수 있는지 확인합니다.
+- 스크린 리더가 상태 메시지와 비활성 사유를 읽을 수 있는지 aria-describedby 같은 연결을 점검합니다.
+
+## 예제 읽는 법
+
+- `BadCase.tsx`에서 책임이 어디에 섞여 있는지 먼저 봅니다.
+- `Example.tsx`에서 호출부 API, 상태 소유권, 변경 범위가 어떻게 줄었는지 비교합니다.
+- 문서의 체크리스트를 기준으로 같은 패턴을 실제 코드 리뷰에 적용할 수 있는지 확인합니다.
 
 ## 관련 패턴
 
@@ -93,5 +92,6 @@ return <Content data={state.data} />;
 
 ## 참고 자료
 
-- [React: Conditional rendering](https://react.dev/learn/conditional-rendering)
+- [MDN: aria-disabled](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled)
+- [React: Conditional Rendering](https://react.dev/learn/conditional-rendering)
 - [WAI-ARIA APG: Dialog Modal Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)

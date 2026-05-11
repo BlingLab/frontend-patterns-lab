@@ -5,19 +5,23 @@
 
 ## 한 줄 요약
 
-매 렌더마다 새 객체 prop을 내려 memoization을 깨지 않게 합니다.
+매 렌더마다 새 객체 prop을 내려 memoization을 깨는 문제를 피합니다.
 
 ## 패턴 형태
 
 - 분류: 안티패턴
-- 형태: 참조 동일성 문제
-- 목적: 자주 하는 실수와 개선 방향은 무엇인가
+- 형태: 문제 징후 / 리팩터링 가이드
+- 핵심 질문: 지금 보이는 코드 냄새가 실제 버그와 변경 비용으로 이어지는가
 
 ## 왜 필요한가
 
-style, options, columns 같은 객체를 inline으로 만들면 memoized child도 매번 변경으로 인식합니다.
+<Child style={{ color: "red" }} />는 매 렌더마다 새 객체가 만들어집니다. Child가 React.memo로 감싸져 있어도 style prop이 항상 바뀌어 memo가 무효화됩니다. 객체는 컴포넌트 밖에 상수로 꺼내거나 useMemo를 써야 합니다.
 
-이 문서는 패턴 이름을 외우기 위한 것이 아니라, 리뷰 중 "이 책임은 어디에 있어야 하는가"를 판단하기 위한 기준입니다.
+안티패턴은 금지 목록이 아니라 리팩터링 신호입니다. React 공식 문서의 상태 구조 원칙, effect 사용 기준, key/state 보존 규칙을 기준으로 “왜 처음에는 편해 보였고, 어떤 변경에서 깨지는지”까지 설명해야 팀 리뷰에서 설득력이 생깁니다.
+
+## 핵심 원리
+
+
 
 ## 언제 사용하는가
 
@@ -36,10 +40,6 @@ style, options, columns 같은 객체를 inline으로 만들면 memoized child�
 2. props/state에 의존하면 useMemo를 검토한다
 3. child API를 primitive 중심으로 단순화한다
 
-## 실무 예시
-
-`Inline Object Props`의 핵심은 매 렌더마다 새 객체 prop을 내려 memoization을 깨지 않게 하는 방식입니다. 코드 리뷰에서 반복되는 문제 패턴을 설명하고 작은 리팩터링 단위로 쪼갤 때 사용합니다.
-
 ## 기본 코드 형태
 
 ```tsx
@@ -47,42 +47,37 @@ style, options, columns 같은 객체를 inline으로 만들면 memoized child�
 // ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
 ```
 
-## 구분 기준
+## 실무 판단 기준
 
-이 문서는 금지 규칙이 아니라 리팩터링 신호입니다. `Inline Object Props`가 보이면 왜 생겼는지 확인하고, 더 작은 책임 경계로 옮길 수 있는지 봅니다.
-
-문제 유형으로는 `참조 동일성 문제`에 가깝습니다. 같은 카테고리의 다른 패턴과 비교할 때 "API 모양", "상태 소유권", "변경 영향 범위"를 기준으로 구분합니다.
+- 먼저 버그가 나는 사용자 흐름이나 변경 요구를 찾습니다.
+- 문제를 만든 책임 경계를 좁혀 최소 리팩터링 단위로 나눕니다.
+- 개선 후에는 불가능한 상태, 중복 소스, 불안정한 identity가 줄었는지 확인합니다.
+- 예외적으로 괜찮은 단순 케이스까지 금지 규칙으로 만들지 않습니다.
 
 ## 코드 리뷰 체크리스트
 
-- 문제가 실제 변경 비용이나 버그로 이어지고 있는가?
-- 더 작은 리팩터링으로 책임을 분리할 수 있는가?
-- 개선 후 호출부와 테스트 단위가 더 명확해졌는가?
+- 문제 징후가 실제 변경 비용이나 사용자 버그로 이어지는가?
+- 개선안이 책임을 더 명확히 만들고 테스트 단위를 좁히는가?
+- 새 abstraction이 기존 코드보다 더 읽기 쉬운 API를 제공하는가?
+- 예외 케이스와 적용하지 않을 신호가 문서화되어 있는가?
 
 ## 흔한 실수
 
-- 문제 징후를 발견하자마자 큰 리팩터링으로 번집니다.
-- 예외적으로 괜찮은 단순 케이스까지 금지합니다.
-- 개선 기준 없이 파일만 쪼갭니다.
+- 문제 징후를 발견하자마자 큰 구조 개편으로 번집니다.
+- 성능 문제와 가독성 문제를 구분하지 않고 memoization으로 가립니다.
+- 개선 기준 없이 파일만 쪼개거나 store만 추가합니다.
 
-## 적용 흐름
+## 테스트와 검증 포인트
 
-1. 객체 생성을 컴포넌트 밖으로 옮긴다
-2. props/state에 의존하면 useMemo를 검토한다
-3. child API를 primitive 중심으로 단순화한다
-
-## 적용하지 않을 신호
-
-- memoization이 필요 없는 cheap child
-- 객체가 매번 달라져야 하는 명확한 이유가 있을 때
+- BadCase에서 어떤 변경이 깨지는지 먼저 재현합니다.
+- ImprovedCase에서 같은 변경을 적용했을 때 수정 범위가 줄었는지 확인합니다.
+- 정적 목록, 작은 컴포넌트, 임시 코드처럼 예외가 되는 상황을 리뷰에서 분리합니다.
 
 ## 예제 읽는 법
 
-`BadCase.tsx`와 `ImprovedCase.tsx`를 함께 봅니다. 좋은 예는 책임 경계와 호출부 API가 어떻게 정리되는지, 나쁜 예는 변경 이유가 어디서 섞이는지 확인하는 용도입니다.
-
-## 실무 판단 기준
-
-이 패턴을 적용했을 때 호출부가 더 읽기 쉬워지고, 변경 이유가 더 좁은 파일에 머물고, 테스트할 단위가 분명해지면 적용할 가치가 있습니다. 반대로 파일 수만 늘고 의사결정이 더 어려워지면 아직 적용 시점이 아닙니다.
+- `BadCase.tsx`에서 문제가 되는 흐름을 먼저 재현합니다.
+- `ImprovedCase.tsx`에서 책임이 어디로 이동했는지 확인합니다.
+- `Example.tsx`는 개선안을 더 작은 화면 맥락에서 실행해 보는 기준으로 읽습니다.
 
 ## 관련 패턴
 
@@ -91,6 +86,7 @@ style, options, columns 같은 객체를 inline으로 만들면 memoized child�
 
 ## 참고 자료
 
-- [React: useEffect](https://react.dev/reference/react/useEffect)
-- [React: Preserving and resetting state](https://react.dev/learn/preserving-and-resetting-state)
 - [React: memo](https://react.dev/reference/react/memo)
+- [React: You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+- [React: Choosing the State Structure](https://react.dev/learn/choosing-the-state-structure)
+- [React: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)

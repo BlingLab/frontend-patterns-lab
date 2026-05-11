@@ -21,6 +21,13 @@ Tabs, Accordion, Select, Menu처럼 여러 하위 요소가 함께 동작하는 
 
 Compound component는 이 둘 사이의 균형입니다. Root가 상태와 context를 제공하고, Trigger와 Panel은 그 context를 읽어 협력합니다. 호출부는 `<Tabs.Trigger>`와 `<Tabs.Panel>`을 원하는 구조로 배치하면서도 상태 연결을 직접 구현하지 않습니다.
 
+## 핵심 원리
+
+- Root가 Context로 상태를 제공하고 Trigger/Panel이 읽는다
+- 호출부에서 하위 요소 배치를 직접 조합할 수 있다
+- 접근성 속성(role, aria-*)은 라이브러리가 내부에서 보장한다
+- Root 밖에서 하위 컴포넌트를 쓰면 명확한 에러가 난다
+
 ## 언제 사용하는가
 
 - Tabs, Accordion, Dropdown Menu, Select처럼 여러 하위 컴포넌트가 같은 상태를 공유할 때
@@ -146,6 +153,12 @@ function TabsPanel({ value, children }: TabsPanelProps) {
 - Trigger와 Panel 연결 규칙을 문서화하지 않아 호출부가 value를 틀리게 씁니다.
 - 접근성 구현 없이 시각적 tab만 구현합니다.
 - compound component가 필요 없는 단순 UI까지 과하게 패턴화합니다.
+
+## 테스트와 검증 포인트
+
+- Root 밖에서 하위 컴포넌트를 사용했을 때 명확한 오류가 나는지 확인합니다.
+- Trigger와 Panel의 aria 연결, keyboard navigation, selected state가 함께 움직이는지 확인합니다.
+- 하위 컴포넌트 순서를 바꿔도 상태 공유가 깨지지 않는지 봅니다.
 
 ## 관련 패턴
 

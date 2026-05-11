@@ -31,6 +31,12 @@ React의 form 문서는 controlled input과 uncontrolled input을 명확히 구�
 
 둘 중 하나만 지원하면 사용성이 치우칩니다. 내부 상태만 지원하면 상위 상태와 동기화하기 어렵고, 외부 제어만 지원하면 간단한 화면에서도 매번 state를 만들어야 합니다.
 
+## 핵심 원리
+
+- value prop이 없으면 내부 상태로 동작한다
+- value + onChange가 있으면 외부가 상태를 소유한다
+- defaultValue로 초기값을 주되 이후 제어는 내부에 맡길 수 있다
+
 ## 언제 사용하는가
 
 - 디자인 시스템의 입력형 컴포넌트를 만들 때
@@ -121,6 +127,12 @@ function Switch({ checked }: { checked: boolean }) {
 - controlled prop과 internal state를 동시에 UI 렌더링에 사용합니다.
 - `onChange` 없이 `value`만 받아 읽기 전용 컴포넌트가 됩니다.
 - controlled/uncontrolled 모드 전환을 허용해 디버깅이 어려워집니다.
+
+## 테스트와 검증 포인트
+
+- controlled와 uncontrolled 모드를 각각 렌더링해 상태 소유자가 섞이지 않는지 확인합니다.
+- defaultValue 변경이 이후 내부 상태를 덮어쓰지 않는지 확인합니다.
+- value만 있고 onChange가 없는 읽기 전용/오사용 케이스를 문서화합니다.
 
 ## 관련 패턴
 

@@ -24,6 +24,12 @@ Container / Presenter는 변경 이유를 나눕니다.
 
 Presenter는 네트워크, 라우터, 전역 store를 몰라야 합니다. 그래서 mock props로 쉽게 테스트할 수 있고, Container는 데이터 준비 흐름만 집중해서 볼 수 있습니다.
 
+## 핵심 원리
+
+- Presenter는 순수 함수처럼 props → JSX만 담당한다
+- Container를 교체해도 Presenter UI는 그대로 재사용된다
+- hooks가 나온 뒤 Container 역할을 custom hook이 대체하는 경우가 많다
+
 ## 언제 사용하는가
 
 - 화면 컴포넌트가 데이터 조회와 마크업을 모두 떠안아 커졌을 때
@@ -91,6 +97,12 @@ Container / Presenter는 "모든 컴포넌트를 무조건 둘로 나누자"는 
 - Container가 너무 많은 view state를 들고 Presenter가 단순 HTML wrapper가 됩니다.
 - Presenter props가 서버 응답 타입 그대로라 API 변경에 여전히 취약합니다.
 - 작은 컴포넌트까지 모두 Container/Presenter로 나눠 구조가 과해집니다.
+
+## 테스트와 검증 포인트
+
+- Container 없이 Presenter만 샘플 props로 렌더링할 수 있는지 확인합니다.
+- 데이터 fetch, loading/error 처리, 화면 표현의 변경 이유가 다른 파일에 머무는지 확인합니다.
+- Presenter props가 API 응답 구조가 아니라 화면 모델인지 봅니다.
 
 ## 관련 패턴
 
