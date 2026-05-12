@@ -104,6 +104,12 @@ Container / Presenter는 "모든 컴포넌트를 무조건 둘로 나누자"는 
 - 데이터 fetch, loading/error 처리, 화면 표현의 변경 이유가 다른 파일에 머무는지 확인합니다.
 - Presenter props가 API 응답 구조가 아니라 화면 모델인지 봅니다.
 
+## 예제에서 확인할 것
+
+- 좋은 예는 `Container.tsx`가 raw member 데이터를 `MemberViewModel`로 바꾸고 선택 상태를 관리합니다.
+- `Presenter.tsx`는 선택된 멤버 이름, view model 목록, callback만 받아 렌더링하므로 API 응답 구조를 모릅니다.
+- 나쁜 예는 role label, activity label, badge 색상, 선택 상태, JSX가 한 컴포넌트에 섞여 변경 이유가 넓습니다.
+
 ## 관련 패턴
 
 - [Custom Hook Boundary](../../hooks/custom-hook-boundary/README.md): 데이터 준비를 hook으로 분리할 때
