@@ -56,33 +56,36 @@ return <ItemList items={query.data} />;
 
 - loading, empty, error, success를 한 목록 화면에서 모두 분기합니다.
 - 사용자가 수정할 위치가 명확하면 inline 메시지를 쓰고, 전역 알림은 toast를 씁니다.
-- 파괴적 행동은 confirm dialog로 한 번 더 확인하되 취소와 focus 흐름을 명확히 합니다.
-- disabled 상태는 이유와 해결 방법을 가까운 위치에 설명합니다.
+- error 상태에는 retry, 문의, 이전 화면 이동처럼 복구 경로를 둡니다.
+- empty 상태에는 create, reset filter, invite처럼 빈 상태를 벗어나는 행동을 둡니다.
+- loading은 기존 목록을 유지할지 skeleton으로 대체할지 화면의 안정성을 기준으로 결정합니다.
 
 ## 코드 리뷰 체크리스트
 
 - 현재 상태를 한눈에 이해할 수 있는 시각적 신호가 있는가?
 - 복구 가능한 상태에 retry, reset, create, edit 같은 다음 행동이 있는가?
-- 비활성 컨트롤의 이유가 tooltip, helper text, aria 속성으로 전달되는가?
-- modal/dialog는 focus 이동과 닫기 동작이 예측 가능한가?
+- loading과 empty가 동시에 보이거나, error와 data가 동시에 보이는 불가능한 상태가 없는가?
+- `role="status"`나 `role="alert"`처럼 상태 변화가 보조 기술에 전달되는가?
 
 ## 흔한 실수
 
 - 빈 결과를 에러처럼 보여주거나 에러를 빈 상태처럼 숨깁니다.
-- 버튼을 disabled만 하고 처리 중인지, 권한이 없는지, 입력이 부족한지 설명하지 않습니다.
-- toast로 폼 필드 오류를 보내 사용자가 화면에서 고칠 위치를 찾지 못합니다.
+- `isLoading`, `isError`, `items.length`를 따로 조합해 충돌 상태가 생깁니다.
+- retry 없이 "오류가 발생했습니다"만 보여줘 사용자가 다음 행동을 알 수 없습니다.
+- 필터 결과가 비어 있는 상황과 데이터 자체가 없는 상황을 같은 문구로 처리합니다.
 
 ## 테스트와 검증 포인트
 
-- 느린 응답, 빈 데이터, 서버 오류, 권한 없음, 입력 부족 상태를 각각 강제로 만들어 확인합니다.
-- 키보드만으로 confirm dialog를 열고 닫고 취소할 수 있는지 확인합니다.
-- 스크린 리더가 상태 메시지와 비활성 사유를 읽을 수 있는지 aria-describedby 같은 연결을 점검합니다.
+- 느린 응답, 빈 데이터, 서버 오류, 필터 결과 없음 상태를 각각 강제로 만들어 확인합니다.
+- 에러에서 retry를 눌렀을 때 loading을 거쳐 success나 error로 다시 전이되는지 봅니다.
+- 빈 상태의 create/reset 액션이 실제로 다음 화면 상태를 바꾸는지 확인합니다.
+- 스크린 리더가 loading/status와 error/alert 변화를 읽을 수 있는지 점검합니다.
 
 ## 예제 읽는 법
 
-- `BadCase.tsx`에서 책임이 어디에 섞여 있는지 먼저 봅니다.
-- `Example.tsx`에서 호출부 API, 상태 소유권, 변경 범위가 어떻게 줄었는지 비교합니다.
-- 문서의 체크리스트를 기준으로 같은 패턴을 실제 코드 리뷰에 적용할 수 있는지 확인합니다.
+- `BadCase.tsx`에서 loading, error, data 토글을 동시에 켜 봅니다. 화면이 로딩, 에러, 빈 상태를 한꺼번에 말하는 충돌 상태가 됩니다.
+- `Example.tsx`는 `loading | error | empty | success` 중 하나만 선택하게 해 현재 화면 상태를 하나로 고정합니다.
+- `StateView.tsx`는 상태별 UI와 복구 행동을 한 경계에 모아 목록 컴포넌트가 success 렌더링에 집중하게 합니다.
 
 ## 관련 패턴
 
@@ -92,5 +95,5 @@ return <ItemList items={query.data} />;
 ## 참고 자료
 
 - [React: Conditional Rendering](https://react.dev/learn/conditional-rendering)
-- [WAI-ARIA APG: Dialog Modal Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
-- [MDN: aria-disabled](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled)
+- [MDN: ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions)
+- [MDN: ARIA alert role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role)
