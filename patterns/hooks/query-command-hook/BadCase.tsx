@@ -6,12 +6,12 @@ export default function QueryCommandHookBadCase() {
       <p>조회 훅과 명령 훅을 분리합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>useUsers()는 조회만, useDeleteUser()는 명령만 담당한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>읽기(query)와 쓰기(mutation)를 한 훅에 모으면 컴포넌트가 이 훅 하나만 있어도 데이터를 바꿀 권한을 갖습니다.</span>
         </div>
       </div>
     </Card>

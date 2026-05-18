@@ -6,12 +6,12 @@ export default function ListRenderingBadCase() {
       <p>큰 목록 렌더링 비용을 줄입니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>1000개 이상 목록에는 가상화(react-window, TanStack Virtual)를 검토한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>10,000개 항목을 한 번에 렌더하면 초기 렌더가 수초 걸립니다.</span>
         </div>
       </div>
     </Card>

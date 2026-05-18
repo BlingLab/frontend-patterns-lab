@@ -6,12 +6,12 @@ export default function ApiResponseLeakingToUiBadCase() {
       <p>서버 응답 구조가 UI 컴포넌트까지 새어 나옵니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>서버 타입을 직접 컴포넌트 props에 쓰지 않는다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>user_name, created_at 같은 서버 snake_case를 컴포넌트 props로 직접 받으면, 서버 API가 바뀔 때 UI 컴포넌트 파일들을 모두 수정해...</span>
         </div>
       </div>
     </Card>

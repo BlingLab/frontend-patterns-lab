@@ -3,15 +3,19 @@ import { Card } from '../../../shared/components/Card';
 export default function ErrorStateBadCase() {
   return (
     <Card title="에러 상태" eyebrow="UI 상태 표현 / 나쁜 예">
-      <p>복구 가능한 오류를 명확한 액션과 함께 보여줍니다.</p>
+      <p>오류를 막연한 문구로만 보여주면 사용자가 무엇을 해야 할지 알 수 없습니다.</p>
+      <div className="demo-box">
+        <strong>오류가 발생했습니다.</strong>
+        <p>잠시 후 다시 시도해 주세요.</p>
+      </div>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>복구 없음</strong>
+          <span>retry, 문의, 이전 화면 이동 같은 다음 행동이 없습니다.</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>영향 범위 불명</strong>
+          <span>어떤 데이터가 실패했고 무엇은 유지되는지 알 수 없습니다.</span>
         </div>
       </div>
     </Card>

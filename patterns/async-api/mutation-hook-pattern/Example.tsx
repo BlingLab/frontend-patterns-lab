@@ -6,12 +6,12 @@ export default function MutationHookPatternExample() {
       <p>쓰기 요청을 명령형 mutation 훅으로 제공합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>적용 기준</strong>
+          <span>mutate() 함수를 컴포넌트에 제공한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>구성 방식</strong>
+          <span>isPending, isError, isSuccess 상태를 반환한다</span>
         </div>
       </div>
     </Card>

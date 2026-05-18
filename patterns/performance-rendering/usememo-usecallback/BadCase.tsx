@@ -6,12 +6,12 @@ export default function UsememoUsecallbackBadCase() {
       <p>값과 콜백 안정성이 실제로 필요한 지점에만 memoization을 적용합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>useCallback: memo된 자식에 넘기는 함수나 useEffect deps</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>useMemo와 useCallback은 비용을 줄이는 것처럼 보이지만 캐시 관리와 deps 비교 비용이 있습니다.</span>
         </div>
       </div>
     </Card>

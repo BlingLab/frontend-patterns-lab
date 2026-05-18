@@ -6,12 +6,12 @@ export default function UseEventListenerBadCase() {
       <p>이벤트 구독과 정리를 훅 경계 안에 둡니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>effect 안에서 add/remove를 한 쌍으로 처리한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>useEffect로 addEventListener를 하면 cleanup에서 removeEventListener를 빠뜨리기 쉽습니다.</span>
         </div>
       </div>
     </Card>

@@ -6,12 +6,12 @@ export default function InfiniteQueryBadCase() {
       <p>무한 스크롤 데이터를 페이지 묶음으로 관리합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>페이지 데이터를 배열로 누적 관리한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>SNS 피드처럼 "더 보기"나 무한 스크롤을 구현할 때 이전 데이터를 유지하면서 새 페이지를 누적해야 합니다.</span>
         </div>
       </div>
     </Card>

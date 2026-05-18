@@ -6,12 +6,12 @@ export default function UnnecessaryGlobalStateImprovedCase() {
       <p>지역 상태로 충분한 값을 전역 store에 올립니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>개선 방향</strong>
+          <span>지역 상태로 충분한 값을 전역 store에 올리는 문제를 피합니다.</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>유지 기준</strong>
+          <span>지역 상태는 컴포넌트가 unmount되면 자동으로 정리된다</span>
         </div>
       </div>
     </Card>

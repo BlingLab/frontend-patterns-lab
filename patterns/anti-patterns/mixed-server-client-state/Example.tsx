@@ -6,12 +6,12 @@ export default function MixedServerClientStateExample() {
       <p>서버 상태와 클라이언트 상태의 소유권을 섞습니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>적용 기준</strong>
+          <span>서버 상태는 TanStack Query, SWR처럼 캐시를 전담하는 도구에 맡긴다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>구성 방식</strong>
+          <span>UI 상태(선택, 열림/닫힘)는 local state나 store에서 별도로 관리한다</span>
         </div>
       </div>
     </Card>

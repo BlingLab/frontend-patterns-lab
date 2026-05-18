@@ -6,12 +6,12 @@ export default function UrlStateBadCase() {
       <p>공유되어야 하는 필터와 페이지 정보를 URL에 둡니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>새로고침해도 상태가 유지된다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>검색 필터를 useState에 두면 페이지를 새로고침하거나 링크를 공유할 때 필터 상태가 사라집니다.</span>
         </div>
       </div>
     </Card>

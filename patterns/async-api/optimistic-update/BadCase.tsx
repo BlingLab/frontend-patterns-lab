@@ -6,12 +6,12 @@ export default function OptimisticUpdateBadCase() {
       <p>캐시를 먼저 갱신하고 실패 시 롤백합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>onMutate에서 캐시를 먼저 업데이트하고 이전 값을 저장한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>할 일 완료 체크처럼 빠른 피드백이 중요한 UI에서 서버 응답을 기다리면 인터랙션이 느리게 느껴집니다.</span>
         </div>
       </div>
     </Card>

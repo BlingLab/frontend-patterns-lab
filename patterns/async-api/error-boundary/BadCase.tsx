@@ -6,12 +6,12 @@ export default function ErrorBoundaryBadCase() {
       <p>렌더링 실패를 화면 경계에서 복구합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>class 컴포넌트로만 구현 가능하지만 래퍼로 쉽게 쓸 수 있다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>컴포넌트에서 throw된 에러가 잡히지 않으면 앱 전체가 빈 화면이 됩니다.</span>
         </div>
       </div>
     </Card>

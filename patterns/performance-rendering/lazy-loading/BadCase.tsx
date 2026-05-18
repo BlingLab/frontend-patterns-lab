@@ -6,12 +6,12 @@ export default function LazyLoadingBadCase() {
       <p>초기 화면에 필요 없는 코드를 늦게 불러옵니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>React.lazy + Suspense로 컴포넌트 수준에서 분리한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>모달, 관리자 패널, 세부 화면처럼 첫 화면에서 보이지 않는 컴포넌트가 초기 번들에 포함되면 LCP가 늦어집니다.</span>
         </div>
       </div>
     </Card>

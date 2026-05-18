@@ -6,12 +6,12 @@ export default function DirtyStateExample() {
       <p>초기값 대비 변경 여부를 추적합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>적용 기준</strong>
+          <span>초기값(defaultValues)을 별도로 보관한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>구성 방식</strong>
+          <span>현재값과 깊은 비교(deep equal)로 dirty 여부를 계산한다</span>
         </div>
       </div>
     </Card>

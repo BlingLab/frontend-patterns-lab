@@ -6,12 +6,12 @@ export default function MemoizationBoundaryBadCase() {
       <p>memo의 경계를 비용이 큰 하위 트리에 둡니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>비용이 큰 자식에만 적용하고 기본 컴포넌트에는 불필요하다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>부모가 리렌더될 때마다 자식도 리렌더됩니다.</span>
         </div>
       </div>
     </Card>

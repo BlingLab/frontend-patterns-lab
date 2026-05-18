@@ -6,12 +6,12 @@ export default function UncontrolledFormBadCase() {
       <p>DOM의 입력 값을 필요 시점에 읽습니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>ref.current.value로 제출 시점에만 값을 읽는다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>단순한 로그인 폼처럼 제출 시점에만 값이 필요하고 중간에 값을 읽을 필요가 없다면, 불필요한 리렌더를 피하기 위해 uncontrolled form이 더 적합합니다.</span>
         </div>
       </div>
     </Card>

@@ -6,12 +6,12 @@ export default function EffectCleanupMissingBadCase() {
       <p>구독, 타이머, 요청 정리를 누락합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>effect return 함수에서 반드시 cleanup한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>setInterval, addEventListener, WebSocket처럼 외부 리소스를 점유하는 코드를 useEffect에서 정리하지 않으면 컴포넌트가 unmou...</span>
         </div>
       </div>
     </Card>

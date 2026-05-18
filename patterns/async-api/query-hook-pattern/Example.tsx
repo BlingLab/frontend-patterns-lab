@@ -6,12 +6,12 @@ export default function QueryHookPatternExample() {
       <p>조회 요청을 전용 훅으로 분리합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>적용 기준</strong>
+          <span>컴포넌트는 "어떻게 가져오는지" 몰라도 된다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>구성 방식</strong>
+          <span>loading/error/data를 훅이 반환한다</span>
         </div>
       </div>
     </Card>

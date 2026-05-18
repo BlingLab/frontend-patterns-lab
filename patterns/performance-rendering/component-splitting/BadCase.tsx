@@ -6,12 +6,12 @@ export default function ComponentSplittingBadCase() {
       <p>변경 빈도가 다른 영역을 컴포넌트로 분리합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>변경 빈도가 다른 UI를 별도 컴포넌트로 추출한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>타이머처럼 자주 바뀌는 부분과 정적인 콘텐츠가 같은 컴포넌트에 있으면, 타이머가 바뀔 때마다 정적 콘텐츠도 리렌더됩니다.</span>
         </div>
       </div>
     </Card>

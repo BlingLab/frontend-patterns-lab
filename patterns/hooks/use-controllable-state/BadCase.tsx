@@ -6,12 +6,12 @@ export default function UseControllableStateBadCase() {
       <p>제어/비제어 상태를 하나의 훅으로 일관되게 처리합니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>빠진 기준</strong>
+          <span>value prop 유무로 자동으로 controlled/uncontrolled를 판단한다</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>실무 비용</strong>
+          <span>컴포넌트 라이브러리를 만들 때 controlled/uncontrolled를 각 컴포넌트마다 if문으로 처리하면 중복이 많고 실수가 생깁니다.</span>
         </div>
       </div>
     </Card>

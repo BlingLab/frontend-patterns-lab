@@ -6,12 +6,12 @@ export default function InlineObjectPropsImprovedCase() {
       <p>매 렌더마다 새 객체 prop을 내려 memoization을 깨뜨립니다.</p>
       <div className="example-surface">
         <div>
-          <strong>상황</strong>
-          <span>요구사항이 커질 때 책임 경계를 명확히 해야 합니다.</span>
+          <strong>개선 방향</strong>
+          <span>매 렌더마다 새 객체 prop을 내려 memoization을 깨는 문제를 피합니다.</span>
         </div>
         <div>
-          <strong>판단</strong>
-          <span>변경 이유, 재사용 범위, 테스트 단위를 기준으로 적용합니다.</span>
+          <strong>유지 기준</strong>
+          <span>memo 밖에 상수로 꺼내거나 useMemo로 캐시한다</span>
         </div>
       </div>
     </Card>
