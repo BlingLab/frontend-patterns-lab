@@ -45,41 +45,41 @@
 ## 기본 코드 형태
 
 ```tsx
-// BadCase.tsx에서 문제 지점을 확인한 뒤
-// ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
+const usersQuery = useUsersQuery();
+const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 ```
 
 ## 실무 판단 기준
 
-- 먼저 버그가 나는 사용자 흐름이나 변경 요구를 찾습니다.
-- 문제를 만든 책임 경계를 좁혀 최소 리팩터링 단위로 나눕니다.
-- 개선 후에는 불가능한 상태, 중복 소스, 불안정한 identity가 줄었는지 확인합니다.
-- 예외적으로 괜찮은 단순 케이스까지 금지 규칙으로 만들지 않습니다.
+- 서버 상태는 원격 원본, stale/fresh, refetch, cache invalidation의 수명을 가집니다.
+- 클라이언트 상태는 선택, 정렬, 모달 open, 입력 draft처럼 화면 조작의 수명을 가집니다.
+- 서버 데이터를 refetch할 때 UI 선택이 반드시 초기화되어야 하는지 별도로 판단합니다.
+- 로컬 draft가 필요한 경우에는 서버 데이터와 draft를 명시적으로 분리하고 저장/취소 경계를 둡니다.
 
 ## 코드 리뷰 체크리스트
 
-- 문제 징후가 실제 변경 비용이나 사용자 버그로 이어지는가?
-- 개선안이 책임을 더 명확히 만들고 테스트 단위를 좁히는가?
-- 새 abstraction이 기존 코드보다 더 읽기 쉬운 API를 제공하는가?
-- 예외 케이스와 적용하지 않을 신호가 문서화되어 있는가?
+- API 응답 배열을 UI store에 복사해 캐시처럼 쓰고 있지 않은가?
+- refetch, invalidate, optimistic update가 UI 선택 상태까지 건드리지 않는가?
+- selected id, modal open, filter 같은 UI 상태가 서버 데이터와 같은 액션에서 함께 리셋되지 않는가?
+- query key와 UI state key가 서로 다른 변경 주기를 갖는다는 점이 코드에서 드러나는가?
 
 ## 흔한 실수
 
-- 문제 징후를 발견하자마자 큰 구조 개편으로 번집니다.
-- 성능 문제와 가독성 문제를 구분하지 않고 memoization으로 가립니다.
-- 개선 기준 없이 파일만 쪼개거나 store만 추가합니다.
+- 서버 목록을 Zustand store에 넣고 직접 갱신해 cache invalidation 기준을 잃습니다.
+- refetch 액션에서 검색어, 선택 항목, 펼침 상태까지 함께 초기화합니다.
+- 서버 응답 객체를 직접 수정해 optimistic UI와 실제 캐시의 차이를 추적하기 어렵게 만듭니다.
 
 ## 테스트와 검증 포인트
 
-- BadCase에서 어떤 변경이 깨지는지 먼저 재현합니다.
-- ImprovedCase에서 같은 변경을 적용했을 때 수정 범위가 줄었는지 확인합니다.
-- 정적 목록, 작은 컴포넌트, 임시 코드처럼 예외가 되는 상황을 리뷰에서 분리합니다.
+- refetch 후 사용자의 선택/필터가 유지되어야 하는지 초기화되어야 하는지 확인합니다.
+- mutation 성공 후 서버 cache만 invalidation되고 UI state가 의도치 않게 바뀌지 않는지 봅니다.
+- offline draft나 편집 중 상태는 저장/취소 시점에 서버 상태와 어떻게 합쳐지는지 검증합니다.
 
 ## 예제 읽는 법
 
-- `BadCase.tsx`에서 문제가 되는 흐름을 먼저 재현합니다.
-- `ImprovedCase.tsx`에서 책임이 어디로 이동했는지 확인합니다.
-- `Example.tsx`는 개선안을 더 작은 화면 맥락에서 실행해 보는 기준으로 읽습니다.
+- `BadCase.tsx`에서는 서버 목록과 선택/검색 UI 상태가 같은 store와 같은 액션에 묶이는 흐름을 봅니다.
+- `ImprovedCase.tsx`에서는 서버 데이터는 query/cache에, UI 선택은 local state에 남아 서로 다른 수명을 갖는지 확인합니다.
+- 실제 코드에서는 query hook이 서버 상태를 반환하고 컴포넌트가 화면 제어 상태를 가까이 소유하게 두는 방식이 기본입니다.
 
 ## 관련 패턴
 

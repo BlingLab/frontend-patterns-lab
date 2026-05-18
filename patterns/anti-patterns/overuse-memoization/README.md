@@ -45,41 +45,45 @@
 ## 기본 코드 형태
 
 ```tsx
-// BadCase.tsx에서 문제 지점을 확인한 뒤
-// ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
+const visibleItems = items.filter((item) => item.name.includes(query));
+
+// 실제 병목이 확인된 뒤에만:
+const visibleItems = useMemo(() => expensiveFilter(items, query), [items, query]);
 ```
 
 ## 실무 판단 기준
 
-- 먼저 버그가 나는 사용자 흐름이나 변경 요구를 찾습니다.
-- 문제를 만든 책임 경계를 좁혀 최소 리팩터링 단위로 나눕니다.
-- 개선 후에는 불가능한 상태, 중복 소스, 불안정한 identity가 줄었는지 확인합니다.
-- 예외적으로 괜찮은 단순 케이스까지 금지 규칙으로 만들지 않습니다.
+- memoization은 설계 도구가 아니라 비용 절감 도구입니다. 먼저 React DevTools Profiler나 간단한 측정으로 병목을 확인합니다.
+- 값 계산이 싼데 `useMemo` deps가 복잡하다면 제거하는 편이 낫습니다.
+- `useCallback`은 memo된 자식, effect deps, context value처럼 참조 안정성이 실제로 필요한 경계에서만 둡니다.
+- 성능 문제가 상위 state 위치 때문에 생긴다면 memo보다 state colocation이나 component splitting이 먼저입니다.
 
 ## 코드 리뷰 체크리스트
 
-- 문제 징후가 실제 변경 비용이나 사용자 버그로 이어지는가?
-- 개선안이 책임을 더 명확히 만들고 테스트 단위를 좁히는가?
-- 새 abstraction이 기존 코드보다 더 읽기 쉬운 API를 제공하는가?
-- 예외 케이스와 적용하지 않을 신호가 문서화되어 있는가?
+- `useMemo` 안의 계산이 실제로 비싼가, 아니면 단순 filter/map인가?
+- `useCallback`으로 감싼 함수가 memo된 자식이나 effect deps에 쓰이는가?
+- deps 배열을 맞추기 위해 로직이 더 복잡해졌는가?
+- memo를 추가하기 전에 렌더 범위를 줄일 수 있는 구조 변경을 검토했는가?
 
 ## 흔한 실수
 
-- 문제 징후를 발견하자마자 큰 구조 개편으로 번집니다.
-- 성능 문제와 가독성 문제를 구분하지 않고 memoization으로 가립니다.
-- 개선 기준 없이 파일만 쪼개거나 store만 추가합니다.
+- 모든 이벤트 핸들러를 습관적으로 `useCallback`으로 감쌉니다.
+- 원시값 조합이나 짧은 배열 연산까지 `useMemo`로 감쌉니다.
+- memo된 자식에 인라인 객체를 넘겨 놓고 `React.memo`만 추가합니다.
+- stale closure를 피하려고 deps를 줄이는 대신 callback 안의 로직을 숨깁니다.
 
 ## 테스트와 검증 포인트
 
-- BadCase에서 어떤 변경이 깨지는지 먼저 재현합니다.
-- ImprovedCase에서 같은 변경을 적용했을 때 수정 범위가 줄었는지 확인합니다.
-- 정적 목록, 작은 컴포넌트, 임시 코드처럼 예외가 되는 상황을 리뷰에서 분리합니다.
+- memo 제거 전후로 실제 렌더 횟수나 interaction 시간이 의미 있게 달라지는지 확인합니다.
+- deps 변경 후 오래된 값이 남는 stale closure가 없는지 이벤트를 반복 실행해 봅니다.
+- memo를 없애도 사용자 입력, 필터, 제출 흐름이 동일하게 동작하는지 확인합니다.
+- 병목이 남아 있으면 memo 대신 state 위치, 리스트 가상화, 코드 스플리팅을 다시 검토합니다.
 
 ## 예제 읽는 법
 
-- `BadCase.tsx`에서 문제가 되는 흐름을 먼저 재현합니다.
-- `ImprovedCase.tsx`에서 책임이 어디로 이동했는지 확인합니다.
-- `Example.tsx`는 개선안을 더 작은 화면 맥락에서 실행해 보는 기준으로 읽습니다.
+- `BadCase.tsx`에서는 memoization이 어떤 실제 비용을 줄이는지 설명하지 못하는 지점을 찾습니다.
+- `ImprovedCase.tsx`에서는 불필요한 memo를 제거했을 때 코드의 데이터 흐름이 더 직접적으로 읽히는지 확인합니다.
+- 최적화가 필요한 예외 케이스는 `performance-rendering/usememo-usecallback` 문서의 기준과 함께 봅니다.
 
 ## 관련 패턴
 

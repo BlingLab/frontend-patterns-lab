@@ -45,41 +45,46 @@ setInterval, addEventListener, WebSocket처럼 외부 리소스를 점유하는 
 ## 기본 코드 형태
 
 ```tsx
-// BadCase.tsx에서 문제 지점을 확인한 뒤
-// ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
+useEffect(() => {
+  const id = window.setInterval(tick, 1000);
+
+  return () => window.clearInterval(id);
+}, [tick]);
 ```
 
 ## 실무 판단 기준
 
-- 먼저 버그가 나는 사용자 흐름이나 변경 요구를 찾습니다.
-- 문제를 만든 책임 경계를 좁혀 최소 리팩터링 단위로 나눕니다.
-- 개선 후에는 불가능한 상태, 중복 소스, 불안정한 identity가 줄었는지 확인합니다.
-- 예외적으로 괜찮은 단순 케이스까지 금지 규칙으로 만들지 않습니다.
+- effect가 React 밖의 시스템을 시작하면 cleanup도 같은 effect 안에 있어야 합니다.
+- timer, DOM event, WebSocket, BroadcastChannel, observer, 외부 라이브러리 instance는 모두 해제 경로를 확인합니다.
+- dependency가 바뀌면 이전 연결을 끊고 새 연결을 만드는 흐름까지 고려합니다.
+- StrictMode에서 mount, cleanup, mount가 반복되어도 중복 구독이나 중복 타이머가 남지 않아야 합니다.
 
 ## 코드 리뷰 체크리스트
 
-- 문제 징후가 실제 변경 비용이나 사용자 버그로 이어지는가?
-- 개선안이 책임을 더 명확히 만들고 테스트 단위를 좁히는가?
-- 새 abstraction이 기존 코드보다 더 읽기 쉬운 API를 제공하는가?
-- 예외 케이스와 적용하지 않을 신호가 문서화되어 있는가?
+- `addEventListener`가 있으면 같은 target/type/listener/options로 `removeEventListener`가 있는가?
+- `setInterval`이나 `setTimeout` id가 cleanup에서 clear되는가?
+- WebSocket, subscription, observer 같은 객체가 `close`, `unsubscribe`, `disconnect` 되는가?
+- cleanup 함수가 stale callback이나 바뀐 dependency 때문에 잘못된 리소스를 해제하지 않는가?
 
 ## 흔한 실수
 
-- 문제 징후를 발견하자마자 큰 구조 개편으로 번집니다.
-- 성능 문제와 가독성 문제를 구분하지 않고 memoization으로 가립니다.
-- 개선 기준 없이 파일만 쪼개거나 store만 추가합니다.
+- 이벤트 리스너를 익명 함수로 등록해 cleanup에서 같은 함수를 제거하지 못합니다.
+- dependency 변경마다 새 interval을 만들지만 이전 interval을 clear하지 않습니다.
+- WebSocket 연결을 닫지 않아 unmount 후에도 메시지 handler가 setState를 호출합니다.
+- cleanup 누락을 숨기려고 `isMounted` flag만 추가하고 실제 외부 리소스는 해제하지 않습니다.
 
 ## 테스트와 검증 포인트
 
-- BadCase에서 어떤 변경이 깨지는지 먼저 재현합니다.
-- ImprovedCase에서 같은 변경을 적용했을 때 수정 범위가 줄었는지 확인합니다.
-- 정적 목록, 작은 컴포넌트, 임시 코드처럼 예외가 되는 상황을 리뷰에서 분리합니다.
+- 컴포넌트를 mount, unmount, remount했을 때 listener나 timer가 하나만 남는지 확인합니다.
+- dependency 값을 바꿨을 때 이전 구독이 해제되고 새 구독만 살아 있는지 봅니다.
+- 테스트에서는 fake timer나 spy로 `clearInterval`, `removeEventListener`, `unsubscribe` 호출을 확인합니다.
+- 브라우저 콘솔에서 unmount 후 setState 경고나 중복 로그가 없는지 확인합니다.
 
 ## 예제 읽는 법
 
-- `BadCase.tsx`에서 문제가 되는 흐름을 먼저 재현합니다.
-- `ImprovedCase.tsx`에서 책임이 어디로 이동했는지 확인합니다.
-- `Example.tsx`는 개선안을 더 작은 화면 맥락에서 실행해 보는 기준으로 읽습니다.
+- `BadCase.tsx`에서는 컴포넌트를 숨겼다가 다시 보여줄 때 timer나 listener가 누적되는 흐름을 봅니다.
+- `ImprovedCase.tsx`에서는 effect가 시작한 외부 작업을 return cleanup에서 정확히 해제하는지 확인합니다.
+- 반복되는 DOM 이벤트 cleanup은 `hooks/use-event-listener` 패턴처럼 훅으로 감싸 재사용할 수 있습니다.
 
 ## 관련 패턴
 

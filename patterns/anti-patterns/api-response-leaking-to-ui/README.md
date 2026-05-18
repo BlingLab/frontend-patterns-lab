@@ -45,41 +45,47 @@ user_name, created_at 같은 서버 snake_case를 컴포넌트 props로 직접 �
 ## 기본 코드 형태
 
 ```tsx
-// BadCase.tsx에서 문제 지점을 확인한 뒤
-// ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
+function toUserViewModel(response: ApiUser): UserViewModel {
+  return {
+    name: response.user_name,
+    joinedAtLabel: formatDate(response.created_at),
+  };
+}
 ```
 
 ## 실무 판단 기준
 
-- 먼저 버그가 나는 사용자 흐름이나 변경 요구를 찾습니다.
-- 문제를 만든 책임 경계를 좁혀 최소 리팩터링 단위로 나눕니다.
-- 개선 후에는 불가능한 상태, 중복 소스, 불안정한 identity가 줄었는지 확인합니다.
-- 예외적으로 괜찮은 단순 케이스까지 금지 규칙으로 만들지 않습니다.
+- API 응답 타입은 네트워크 경계 안에서 끝내고, 화면 컴포넌트는 UI 언어의 타입을 받게 합니다.
+- snake_case, nullable 필드, 서버 enum, 날짜 문자열 변환은 adapter에서 처리합니다.
+- 같은 응답을 여러 화면에서 쓰더라도 각 화면이 필요한 view model은 다를 수 있습니다.
+- 아주 작은 내부 도구처럼 API와 UI 수명이 완전히 같은 경우에는 adapter를 과하게 만들지 않습니다.
 
 ## 코드 리뷰 체크리스트
 
-- 문제 징후가 실제 변경 비용이나 사용자 버그로 이어지는가?
-- 개선안이 책임을 더 명확히 만들고 테스트 단위를 좁히는가?
-- 새 abstraction이 기존 코드보다 더 읽기 쉬운 API를 제공하는가?
-- 예외 케이스와 적용하지 않을 신호가 문서화되어 있는가?
+- 컴포넌트 props에 `user_name`, `created_at`, `is_deleted` 같은 서버 필드명이 직접 들어오지 않는가?
+- null fallback, 날짜 포맷, 서버 status 해석이 여러 컴포넌트에 반복되지 않는가?
+- API 버전 변경 시 adapter 테스트만 고치면 되는가, 화면 파일을 줄줄이 고쳐야 하는가?
+- UI 모델 이름이 사용자가 보는 개념과 맞는가?
 
 ## 흔한 실수
 
-- 문제 징후를 발견하자마자 큰 구조 개편으로 번집니다.
-- 성능 문제와 가독성 문제를 구분하지 않고 memoization으로 가립니다.
-- 개선 기준 없이 파일만 쪼개거나 store만 추가합니다.
+- 서버 응답을 그대로 전역 store에 넣고 모든 컴포넌트가 API 스키마를 알게 만듭니다.
+- 각 컴포넌트에서 `user_name ?? '이름 없음'` 같은 fallback을 반복합니다.
+- adapter가 단순 rename을 넘어서 화면 상태와 side effect까지 처리해 또 다른 거대한 계층이 됩니다.
+- 서버 enum을 UI className에 바로 연결해 API 값 변경이 스타일 깨짐으로 이어집니다.
 
 ## 테스트와 검증 포인트
 
-- BadCase에서 어떤 변경이 깨지는지 먼저 재현합니다.
-- ImprovedCase에서 같은 변경을 적용했을 때 수정 범위가 줄었는지 확인합니다.
-- 정적 목록, 작은 컴포넌트, 임시 코드처럼 예외가 되는 상황을 리뷰에서 분리합니다.
+- API 필드명이 바뀌거나 null이 추가됐을 때 adapter 테스트가 먼저 실패하는지 확인합니다.
+- 날짜, 통화, status label 같은 표시 규칙이 한 곳에서 검증되는지 봅니다.
+- 컴포넌트 테스트는 API 응답이 아니라 UI 모델 fixture로 작성할 수 있어야 합니다.
+- 서버 응답 샘플을 추가해 adapter가 누락 필드와 예상 밖 enum을 어떻게 처리하는지 확인합니다.
 
 ## 예제 읽는 법
 
-- `BadCase.tsx`에서 문제가 되는 흐름을 먼저 재현합니다.
-- `ImprovedCase.tsx`에서 책임이 어디로 이동했는지 확인합니다.
-- `Example.tsx`는 개선안을 더 작은 화면 맥락에서 실행해 보는 기준으로 읽습니다.
+- `BadCase.tsx`에서는 서버 필드명이 UI 마크업까지 흘러 들어가는 지점을 찾습니다.
+- `ImprovedCase.tsx`에서는 adapter가 API 응답을 화면에 필요한 이름, 포맷, fallback으로 바꾸는 경계를 확인합니다.
+- 실제 코드에서는 query hook 안에서 adapter를 호출해 컴포넌트가 이미 변환된 데이터를 받게 만드는 방식이 실용적입니다.
 
 ## 관련 패턴
 

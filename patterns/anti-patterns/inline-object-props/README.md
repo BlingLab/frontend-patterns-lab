@@ -21,7 +21,9 @@
 
 ## 핵심 원리
 
-
+- 객체, 배열, 함수 리터럴은 렌더마다 새 참조가 된다
+- memo된 자식이나 effect deps에 넘길 때 참조 안정성이 중요하다
+- 상수로 뺄 수 있으면 컴포넌트 밖으로, props/state에 의존하면 useMemo로 둔다
 
 ## 언제 사용하는가
 
@@ -43,41 +45,46 @@
 ## 기본 코드 형태
 
 ```tsx
-// BadCase.tsx에서 문제 지점을 확인한 뒤
-// ImprovedCase.tsx에서 책임을 어디로 옮겼는지 비교한다.
+const CARD_STYLE = { borderColor: '#d1d5db' };
+
+function ProductCard() {
+  return <MemoizedPanel style={CARD_STYLE} />;
+}
 ```
 
 ## 실무 판단 기준
 
-- 먼저 버그가 나는 사용자 흐름이나 변경 요구를 찾습니다.
-- 문제를 만든 책임 경계를 좁혀 최소 리팩터링 단위로 나눕니다.
-- 개선 후에는 불가능한 상태, 중복 소스, 불안정한 identity가 줄었는지 확인합니다.
-- 예외적으로 괜찮은 단순 케이스까지 금지 규칙으로 만들지 않습니다.
+- 인라인 객체 자체가 항상 문제는 아닙니다. 문제는 참조 비교가 중요한 경계에 매번 새 객체를 넘기는 것입니다.
+- `React.memo`, `useEffect` deps, table columns/options, context value는 참조 안정성이 실제 동작에 영향을 줍니다.
+- 값이 props/state에 의존하지 않으면 컴포넌트 밖 상수로 빼는 것이 `useMemo`보다 단순합니다.
+- 객체 prop을 없애고 `variant`, `size`, `disabled` 같은 primitive prop으로 API를 바꿀 수 있는지도 검토합니다.
 
 ## 코드 리뷰 체크리스트
 
-- 문제 징후가 실제 변경 비용이나 사용자 버그로 이어지는가?
-- 개선안이 책임을 더 명확히 만들고 테스트 단위를 좁히는가?
-- 새 abstraction이 기존 코드보다 더 읽기 쉬운 API를 제공하는가?
-- 예외 케이스와 적용하지 않을 신호가 문서화되어 있는가?
+- memo된 자식에 `style={{...}}`, `options={[...]}`, `columns={[...]}`를 바로 넘기고 있지 않은가?
+- effect deps에 객체 리터럴이 들어가 effect가 매 렌더 다시 실행되지 않는가?
+- context provider의 `value={{ state, actions }}`가 매 렌더 새 객체가 되어 소비자를 모두 리렌더하지 않는가?
+- 객체를 안정화하는 대신 child API를 더 단순하게 만들 수 없는가?
 
 ## 흔한 실수
 
-- 문제 징후를 발견하자마자 큰 구조 개편으로 번집니다.
-- 성능 문제와 가독성 문제를 구분하지 않고 memoization으로 가립니다.
-- 개선 기준 없이 파일만 쪼개거나 store만 추가합니다.
+- `React.memo`를 추가했지만 부모가 매번 새 object prop을 내려 memo가 무효화됩니다.
+- `useMemo` deps에 매번 새로 만들어지는 객체를 넣어 캐시가 항상 깨집니다.
+- 정적인 style 객체도 컴포넌트 안에서 만들어 불필요한 리렌더 원인이 됩니다.
+- 문제를 숨기려고 child 안에서 deep compare를 추가해 비용과 복잡도를 키웁니다.
 
 ## 테스트와 검증 포인트
 
-- BadCase에서 어떤 변경이 깨지는지 먼저 재현합니다.
-- ImprovedCase에서 같은 변경을 적용했을 때 수정 범위가 줄었는지 확인합니다.
-- 정적 목록, 작은 컴포넌트, 임시 코드처럼 예외가 되는 상황을 리뷰에서 분리합니다.
+- 부모의 unrelated state를 바꿨을 때 memo된 자식 렌더 횟수가 늘어나는지 확인합니다.
+- effect가 실제 의존 값 변경 없이 반복 실행되는지 로그나 render tracking으로 봅니다.
+- 상수 추출 또는 `useMemo` 적용 후 같은 조작에서 렌더 횟수가 줄어드는지 확인합니다.
+- memo가 필요 없는 작은 컴포넌트라면 객체 안정화 자체를 하지 않는 선택도 기록합니다.
 
 ## 예제 읽는 법
 
-- `BadCase.tsx`에서 문제가 되는 흐름을 먼저 재현합니다.
-- `ImprovedCase.tsx`에서 책임이 어디로 이동했는지 확인합니다.
-- `Example.tsx`는 개선안을 더 작은 화면 맥락에서 실행해 보는 기준으로 읽습니다.
+- `BadCase.tsx`에서는 부모 state만 바뀌어도 객체 prop 때문에 자식이 다시 렌더되는 흐름을 봅니다.
+- `ImprovedCase.tsx`에서는 정적 객체를 컴포넌트 밖으로 빼거나 의존 값이 있는 객체만 `useMemo`로 감싼 기준을 확인합니다.
+- 실제 리뷰에서는 객체를 안정화할지, child API를 primitive prop으로 바꿀지 함께 판단합니다.
 
 ## 관련 패턴
 
